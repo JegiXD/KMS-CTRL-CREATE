@@ -24,7 +24,7 @@ Preverjena kontrastna razmerja: glavno besedilo/bela 17,76 : 1, sekundarno besed
 - DM Sans za besedilo; Space Grotesk 700 za naslove. Obstoječi Google Fonts uvoz ima lokalni Arial/sans-serif fallback.
 - Naslovi uporabljajo `clamp()`, ločeni velikosti za hero in podstrani, prilagodljiv H2 in manjši H3. Daljše besedilo se prelomi; uvodni odstavki so omejeni na 44 rem.
 - Razmiki iz lestvice 0,5 / 1 / 1,5 / 2 / 3 / 4,5 rem; sekcije 4–8 rem. Vsebina je na velikih zaslonih omejena na 1440 px, z odzivnim robom najmanj 20 px.
-- Do 700 px: en stolpec kartic, dva hero posnetka, novice ohranijo tudi datume. Do 1100 px: mobilni meni, dve koloni ekipe in informativnih kartic, kontakt v eni koloni. Nad 1100 px: polna navigacija, trije stolpci ekipe in informacij, dva stolpca kontakta.
+- Do 700 px: en stolpec kartic, novice ohranijo tudi datume. Po koraku 03 hero prikazuje eno sliko do 420 px, dve od 421 do 700 px in tri nad 700 px. Do 1100 px: mobilni meni, dve koloni ekipe in informativnih kartic, kontakt v eni koloni. Nad 1100 px: polna navigacija, trije stolpci ekipe in informacij, dva stolpca kontakta.
 - Primarni gumbi so visoki najmanj 48 px, filtri in mobilni meni najmanj 44 px. Fokus ima kontrasten obris in dodatni rob; `aria-expanded`/`aria-controls` opisujeta meni, `aria-pressed` izbrani filter.
 - Fotografije/začasni JPG vizuali so z `grayscale(1)` prikazani nevtralno. Izvirni logotip je ohranjen.
 - CSS ne dodaja transformacij na GSAP reveal elemente. Hover povečava slik je omejena na naprave s hoverjem in brez zmanjšanega gibanja. Reduced motion izklopi CSS animacije in prehode; GSAP ob nalaganju preskoči animacije.
@@ -38,3 +38,6 @@ Preverjeni še odpiranje/zapiranje menija, samodejno zapiranje po navigaciji, fi
 Predogledi (z zmanjšanim gibanjem): [mobilni, celotna stran](previews/design-system-mobile.png), [tablični](previews/design-system-tablet.png), [namizni](previews/design-system-desktop.png).
 
 Fizične naprave, Safari/Firefox, celotna presoja dostopnosti ter dinamična sprememba reduced motion med obiskom še niso preverjeni. Vsebinske naloge iz audita 01 ostajajo odprte.
+
+## Posodobitev po koraku 04
+Scroll scena sedaj preide iz temne fotografske kompozicije v belo ozadje dogodkov. Stara samostojna svetla scena je nadomeščena. `ScrollStory` in `Reveal` uporabljata GSAP matchMedia, zato se reduced motion upošteva tudi ob spremembi med obiskom. Nove meritve in predogledi so v [SCROLL_STORY.md](SCROLL_STORY.md); starejše omejitve in posnetki zgoraj opisujejo stanje ob koraku 02.

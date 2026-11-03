@@ -1,6 +1,8 @@
 # OSNUTEK ODDAJE CTRL+CREATE
 
 ## Izvorna koda
+
+Posodobitev 3. 11. 2026: na GitHub so vključeni zaključeni koraki 01–05, evidenca virov in predogledi. Pred nalaganjem sta typecheck in build ponovno uspela.
 [GitHub — JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE), zasebni repozitorij, veja `main`. To ni deljiva javna povezava na gostujoči prototip. Git pripravo in nalaganje je na uporabnikovo zahtevo izvedel Codex z obstoječo GitHub prijavo; GitHub CLI in Copilot nista bila uporabljena. Pred nalaganjem sta typecheck in build uspela.
 
 ## Ideja (osnutek, pregledaj in prilagodi pred oddajo)
@@ -14,7 +16,10 @@ Končni cilj ni zgolj estetska prenova, temveč občutek, da obiskovalec v nekaj
 - ChatGPT: načrt, struktura, vsebinski predlogi, začetni scaffold in dokumentacija.
 - Codex: audit 01 — pregled kode in dokumentacije, `npm install`, preverjanje tipov in produkcijske gradnje, preverjanje lokalnih slikovnih poti in kontaktnega `mailto`, primerjava javnih virov ter uskladitev dokumentacije. Brez sprememb vizualne smeri ali izvorne kode aplikacije.
 - Codex: korak 02 — poenotenje CSS sistema po novi monokromatski usmeritvi, dostopna stanja menija/filtrov, popravek časa čiščenja GSAP in preverjanje odzivnosti ter interakcij s chrome-devtools-cli. Ponovno izvedena typecheck in build.
-- GitHub Copilot: pri korakih 01 in 02 ni bil uporabljen.
+- Codex: korak 03 — samostojna hero komponenta, kratko uvodno besedilo in CTA za članstvo, lokalni triptih s tremi/dvema/enim stolpcem, prednostno nalaganje sredinske slike in preverjanje v Chromu. Fotografije niso bile ustvarjene ali pridobljene; uporabljeni so obstoječi označeni začasni vizuali.
+- Codex: korak 04 — povezana GSAP timeline z razširitvijo lokalnih slik, preoblikovanjem napisa in razkritjem uvoda v dogodke; odzivno pripenjanje, sprotni reduced motion tudi v Reveal, preverjanje stabilnosti postavitve ter čiščenja ob navigaciji s chrome-devtools-cli.
+- Codex: korak 05 — preverjanje osmih neposrednih uradnih projektnih strani, uredniški povzetki opisov, kategorije, števci in kartice, dostopna ponastavitev ter preverjanje tipkovnice, filtriranja in odzivnosti v Chromu.
+- GitHub Copilot: pri korakih 01–05 ni bil uporabljen.
 - React, TypeScript, Vite, GSAP ScrollTrigger, CSS.
 
 ## Za končno oddajo
@@ -31,3 +36,12 @@ Namestitev, `npm run typecheck` in `npm run build` so uspeli (Node.js 22.15.0, n
 
 ## Stanje po koraku 02 (3. 11. 2026)
 Izveden lokalni brskalniški pregled vseh poti pri šestih širinah, brez vodoravnega prelivanja. Preverjeni meni, filter, fokus, osnovni kontrasti, prehodi in reduced motion ob nalaganju. Typecheck in build uspešna. Podrobnosti in predogledi so v `BRAND_COLORS.md`. Fizične naprave, drugi brskalniki, vsebinska točnost, zunanje storitve, javna objava in PDF ostajajo za končni pregled.
+
+## Stanje po koraku 03 (3. 11. 2026)
+Hero prikazuje velik naslov, kratek uvod, uradni CTA za članstvo in lokalne slike s pošteno oznako začasnih vizualov. Preverjenih 11 širin (320–1920 px), brez vodoravnega prelivanja; preizkušeni fallback brez spremembe višine slike, sidro do uvoda in prehodi med stranmi. Reduced motion ob nalaganju ohrani vidno vsebino brez pina in gladkega drsenja. Typecheck in build uspešna. Gre za lokalno preverjanje v namiznem Chromu; fizične naprave in ostale vsebinske/oddajne naloge ostajajo odprte.
+
+## Stanje po koraku 04 (3. 11. 2026)
+Povezana scroll scena je izvedena; naslov dogodkov nastane z razkritjem bele ploskve, seznam projektov pa se nadaljuje iz nje. Na telefonih in nizkih zaslonih ni pina, pri reduced motion so vsebine prikazane statično. Preverjene sprotne spremembe nastavitev gibanja in prelomov, drsenje naprej/nazaj ter ponavljajoča navigacija. Med merjenim namiznim prehodom je bil vsoten layout shift 0; to ni meritev celotnega nalaganja strani ali vseh naprav. Typecheck in build uspešna. Podrobnosti in predogledi so v [SCROLL_STORY.md](SCROLL_STORY.md). Odobrene fotografije, fizične naprave in preostale vsebinske/oddajne naloge ostajajo odprte.
+
+## Stanje po koraku 05 (3. 11. 2026)
+Vseh osem projektov ima opis po preverjeni uradni predstavitvi in neposredno povezavo. Stran jasno loči pregled projektov od koledarja prihodnjih izvedb; nepotrjeni termini in cene niso dodani. Viri so dokumentirani v [EVENTS_AND_SOURCES.md](EVENTS_AND_SOURCES.md). Filtri, števci, ponastavitev, tipkovnica in postavitev so preverjeni pri osmih širinah v Chromu. Typecheck in build uspešna. Fotografije ostajajo začasne; testiranje na fizičnih napravah in potrditev aktualnih terminov sta še odprta.

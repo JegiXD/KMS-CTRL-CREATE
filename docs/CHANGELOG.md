@@ -1,5 +1,11 @@
 # DNEVNIK SPREMEMB
 
+## 2026-11-03 — GitHub posodobitev korakov 03–05
+
+- Na uporabnikovo zahtevo pripravljeni in naloženi hero, povezana scroll zgodba ter stran dogodkov z dokumentiranimi viri in predogledi na vejo `main` repozitorija `JegiXD/KMS-CTRL-CREATE`.
+- Pred nalaganjem ponovno uspešno izvedena typecheck in build ter pregled vsebine commita. Gradnja, odvisnosti in lokalne nastavitve ostajajo izključene.
+- AI: Codex je pripravil commit in nalaganje z obstoječo Git prijavo; aplikacijska koda pri samem nalaganju ni dodatno spremenjena.
+
 ## 2026-11-03 — GitHub repozitorij
 
 - Na uporabnikovo zahtevo pripravljena Git zgodovina z začetnim commitom na veji `main` in zasebni repozitorij `JegiXD/KMS-CTRL-CREATE`.
@@ -52,3 +58,39 @@
 - `npm run typecheck` in `npm run build` uspešna. Brez novih odvisnosti. Predogledi in sistem so opisani v `docs/BRAND_COLORS.md`; README in osnutek oddaje sta usklajena.
 - Omejitve: emulacija v namiznem Chromu, brez fizičnih naprav in drugih brskalnikov; brez celotne presoje WCAG. Vsebinske naloge iz audita 01 ostajajo odprte. Referenčni screenshot v tem koraku ni bil priložen.
 - AI: Codex je zasnoval in izvedel CSS sistem, manjše dostopnostne popravke in popravek čiščenja GSAP, izvedel preverjanja s chrome-devtools-cli ter pripravil dokumentacijo. Copilot ni bil uporabljen.
+
+## 2026-11-03 — 03 / Hero
+
+- Dodana berljiva samostojna komponenta `src/components/Hero.tsx`; `Home.tsx` jo vključuje namesto prejšnjega inline hero bloka. Preostale sekcije in scroll animacije ostajajo ohranjene.
+- Pred triptih postavljen velik naslov »NE SAMO ŠTUDENTI. SKUPNOST.«, kratek uvod in jasen gumb do nespremenjenega uradnega obrazca za včlanitev. Spodnja povezava vodi na `#intro`.
+- Tri lokalne datoteke `hero-left.jpg`, `hero-center.jpg`, `hero-right.jpg` ostajajo v `public/assets/hero/`. Gre za obstoječe abstraktne začasne vizuale (960 × 1100 px), ne odobrene fotografije KMŠ; oznaka je vidna, alt opisi ustrezajo začasnim datotekam. Brez hotlinkov, novih fotografij ali generiranih slik.
+- Triptih ima poudarjeno sredinsko sliko in zamaknjeni stranski sliki: trije stolpci nad 700 px, dva od 421 do 700 px, ena sredinska slika do 420 px. Naslov ostane pred slikami in dostopen tudi na ozkem telefonu.
+- `SmartImage` podpira neobvezni `loading` in `fetchPriority`, ohranja lazy loading kot privzeto ter doda asinhrono dekodiranje. Sredinska hero slika se naloži eager s prioriteto high; stranski in ostale slike ostanejo lazy. CSS rezervira višino za slike in fallback.
+- Typecheck in produkcijska gradnja uspešna; brez novih odvisnosti.
+- Chrome s chrome-devtools-cli: preverjene širine 320, 390, 420, 421, 600, 700, 701, 768, 1024, 1440 in 1920 px. Pravilno število prikazanih slik, vse vidne slike naložene iz lokalnega izvora, tri slikovne reference v DOM, prioriteta sredinske slike pravilna, brez vodoravnega prelivanja dokumenta in pregledanih hero elementov.
+- Pri 390 px s sproženim slikovnim error dogodkom preverjen `SmartImage` fallback brez spremembe višine okvirja; sidro dejansko pomakne do uvoda. Prehod na O nas in vrnitev obnovita vse tri slike; brez napak v konzoli pri teh interakcijah. Reduced motion ob nalaganju: hero viden, nič pin-spacerjev, scroll-behavior auto. Zunanja oddaja obrazca ni bila izvedena.
+- Pregledani in shranjeni posnetki v `docs/previews/hero-390.png`, `hero-600.png`, `hero-1440.png`. Prejšnji posnetki design-system ostajajo zgodovinski. README, evidenca sredstev, opis oblikovnega sistema in osnutek oddaje so posodobljeni.
+- Omejitve: testiranje v emulaciji namiznega Chroma; fizične naprave in drugi brskalniki niso preverjeni. Licencirane fotografije in odprte vsebinske naloge iz prejšnjih korakov ostajajo za nadaljevanje.
+- AI: Codex je pripravil komponento, uvodno besedilo, CSS, razširitev nalaganja SmartImage, lokalna preverjanja in dokumentacijo. Copilot ni bil uporabljen.
+
+## 2026-11-03 — 04 / Povezani scroll
+
+- `ScrollStory.tsx` preurejen v povezano zgodbo z lokalnim triptihom, preoblikovanjem napisa »SKUPAJ.« in razkritjem uvoda »DOŽIVI MARIBOR.«. `Home.tsx` nadaljuje sceno z dogodki na isti beli podlagi, brez podvojenega naslova; povezava do vseh dogodkov ostaja dosegljiva.
+- En desktop timeline uporablja scrub in pin samo nad 700 px širine ter 600 px višine. Na telefonih/nizkih zaslonih je le blag scrub povečave brez pina; reduced motion pokaže statično vsebino.
+- Rezervirani okvirji, transformacije namesto sprememb dimenzij, pin spacing in pripenjanje s transformacijo preprečijo skakanje naslednje sekcije. Med razvojem zaznan premik ob prehodu na position:fixed je odpravljen s `pinType: 'transform'`. V končnem merjenem namiznem prehodu je bila vsota layout shiftov 0; to ni meritev celotnega CLS strani.
+- Dodana sprotna prilagoditev prelomom in reduced motion z GSAP matchMedia. Posodobljen tudi `Reveal`, da ob vklopu reduced motion odstrani obstoječe animacije in pokaže vsebino. `media.revert()` v useLayoutEffect odstrani pin in sprožilce pred unmountom; osvežitev meritev po nalaganju pisav se po unmountu prekliče.
+- Ohranjen uporabnikov logotip, monokromatski sistem, obstoječe poti in članstvo. Uporabljene iste tri lokalne začasne slike prek SmartImage; novih medijskih datotek ali odvisnosti ni.
+- Typecheck in build uspešna. V Chromu preverjenih devet velikosti brez reduced motion, še dve z reduced motion, sprotne spremembe nastavitev in novo nalaganje. Preverjeni drsenje naprej/nazaj, meje pina 700/701 px in 600/601 px, rezerviran položaj dogodkov ter trikratni odhod s scene in vrnitev. Brez vodoravnega prelivanja in napak v konzoli pri teh preizkusih.
+- Ugotovitve in predogledi so v `docs/SCROLL_STORY.md`; posodobljeni README, osnutek oddaje, barvni sistem in evidenca slik. Fizične naprave, drugi brskalniki, profiliranje na šibkih napravah in vsebinske naloge ostajajo odprti.
+- AI: Codex je izvedel komponento, CSS in povezavo s seznamom dogodkov, dopolnil uvodno besedilo, preveril obnašanje s chrome-devtools-cli in pripravil dokumentacijo. Copilot ni bil uporabljen.
+
+## 2026-11-03 — 05 / Dogodki
+
+- Vseh osem projektov ima nove, kratke opise po neposredno pregledanih uradnih predstavitvah KMŠ. Osem uradnih URL-jev je vrnilo HTTP 200; evidenca trditev, povezav in omejitev je v `docs/EVENTS_AND_SOURCES.md`.
+- Cantus popravljen iz splošnega koncertnega opisa v tematsko druženje s tradicionalnim petjem in izzivi. Ftrgatev jasno povzema napoved 2025; ne prikazuje starega termina kot prihodnjega. Pri ostalih projektih niso dodani nepotrjeni termini, cene ali obljube o periodičnosti.
+- Centralni tipizirani podatki v `content.ts`, vključno s kategorijami in datumom pregleda virov. Posodobitve povezav in oznak veljajo tudi za kartice na domači strani.
+- Dodana samostojna `src/pages/Events.tsx`; obstoječi izvoz in pot `/dogodki` ostajata ohranjena. Nova uvodna hierarhija, uporabne kategorije (Glasba, Druženje, Delavnice, Dobrodelnost, Humor), števci, live stanje rezultatov in ponastavitev s povrnitvijo fokusa.
+- Kartice imajo lokalno sliko, opis in neposredno uradno povezavo z oznako novega zavihka. Monokromatska paleta, mobilni en stolpec in širši dva stolpca, rezervirane višine slik ter označeni začasni vizuali so ohranjeni. Brez novih odvisnosti ali animacij.
+- Typecheck in build uspešna. V Chromu vseh šest filtrov preverjenih pri širinah 320, 390, 700, 701, 768, 1024, 1440 in 1920 px: pravilni nabori 8/4/1/1/1/1, števci in aria-pressed, ponastavitev/fokus, brez vodoravnega prelivanja. Preverjeni Enter, Tab in Space, vidni fokus, osem različnih neposrednih povezav, prehod z domače strani in slikovni fallback brez spremembe višine. Brez napak v konzoli pri teh interakcijah.
+- README, kontrolni seznam, evidenca virov in osnutek oddaje so posodobljeni; posnetki filtrov in kartic v `docs/previews/events-*.png`. Fizične naprave, drugi brskalniki, aktualni termini in odobrene fotografije ostajajo za končni pregled.
+- AI: Codex je preveril in povzel uradne vire, pripravil podatke, React stran, CSS, lokalne preizkuse s chrome-devtools-cli ter dokumentacijo. Copilot ni bil uporabljen.

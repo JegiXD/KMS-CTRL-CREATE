@@ -3,7 +3,7 @@
 - [x] Domača stran s predstavitvijo KMŠ
 - [x] Predstavitev kluba in ekipe (začetni prikaz)
 - [ ] Popolna in aktualno potrjena sestava Upravnega odbora, Nadzorne komisije in Častnega razsodišča
-- [x] Dogodki/projekti z osnovnimi opisi
+- [x] Vseh osem dogodkov/projektov z opisi po preverjenih uradnih virih, neposrednimi povezavami in kategorijami (korak 05; viri v `EVENTS_AND_SOURCES.md`)
 - [x] Seznam aktualnih objav (začetne povezave na domensko stran; potrebne povezave do posameznih novic)
 - [x] Članstvo in viden pravi gumb za včlanitev
 - [x] Priložnosti za mlade in predlog idej

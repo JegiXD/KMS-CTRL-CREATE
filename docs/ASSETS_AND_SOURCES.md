@@ -12,6 +12,8 @@
 
 ## Konvencija imen – sem kopiraj slike z dovoljenjem
 
+Korak 03 (3. 11. 2026): `Hero.tsx` uporablja obstoječe `hero-left.jpg`, `hero-center.jpg` in `hero-right.jpg` (vse 960 × 1100 px). Alt opisi jih označujejo kot začasne vizuale; oznaka je vidna tudi pod triptihom. Prave fotografije se še pridobijo z dovoljenjem. Sredinska slika ima eager loading in visoko prioriteto, stranski lazy loading. CSS rezervira prostor, izreze preveri ponovno ob zamenjavi z dejanskimi fotografijami.
+
 | Pot | Priporočena vsebina |
 |---|---|
 | `public/assets/branding/kms-logo-original.png` | uporabnikov izvirnik logotipa, že priložen |
@@ -45,3 +47,9 @@ Ohrani obstoječo strukturo, vse strani in scroll animacije. Nova paleta: primar
 
 ## Korak 02 — novejše uporabnikovo navodilo (3. 11. 2026)
 Uporabnik je po RED / WHITE posodobitvi izrecno naročil črno-belo-siv oblikovni sistem. Ta zahteva nadomešča zgornjo rdeče-belo paleto in prepoved črnega ozadja. Veljavni sistem je opisan v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Uporabnikov logotip, favicon, struktura, poti in scroll animacije ostajajo ohranjeni.
+
+## Slike v povezani zgodbi / korak 04
+`ScrollStory.tsx` ponovno uporabi tri lokalne datoteke iz hero sekcije prek `SmartImage`, s privzetim lazy nalaganjem in rezerviranimi okvirji. Slike niso podvojene na disku in ni novih zunanjih virov. Še vedno gre za označene začasne ilustracije; pred objavo potrebujejo zamenjavo z odobrenimi fotografijami KMŠ.
+
+## Vsebinska evidenca dogodkov / korak 05
+Opisi in neposredne uradne povezave vseh osmih projektov so preverjeni ter dokumentirani v [EVENTS_AND_SOURCES.md](EVENTS_AND_SOURCES.md). Vse obstoječe lokalne datoteke dogodkov so ohranjene in še vedno označene kot začasni vizuali. Javna dostopnost projektnih strani ne pomeni dovoljenja za prenos njihovih fotografij; novih fotografij nismo prenesli.

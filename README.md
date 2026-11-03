@@ -12,6 +12,8 @@ Konceptni odziven prototip spletne strani Kluba mariborskih študentov z izrazit
 ## GitHub
 Repozitorij: [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) (zaseben; dostop zahteva dovoljenje lastnika). Glavna veja je `main`. Odvisnosti namesti z `npm install`; `node_modules`, `dist`, `.env` datoteke, lokalne IDE nastavitve in TypeScript predpomnilnik niso vključeni. GitHub repozitorij še ne pomeni javno gostujoče spletne strani.
 
+Različica na GitHubu vključuje zaključene korake 01–05, skupaj z dokumentacijo virov in lokalnimi predogledi.
+
 ## Trenutno pripravljeno
 - 8 navigacijskih poti: Domov, O nas, Dogodki, Novice, Članstvo, Priložnosti, Kontakt, Newsletter (slednji ni v navigaciji, vendar je dosegljiv na `/newsletter`).
 - Responzivna navigacija, kartice dogodkov, filtriranje dogodkov, seznam novic, prikaz ekipe.
@@ -32,6 +34,21 @@ Odprto: ekipa v prototipu se razlikuje od uradne strani, sestava organov še man
 
 V Chromu je preverjenih vseh osem poti in 404 pri širinah 320, 390, 768, 1024, 1440 in 1920 px, brez vodoravnega prelivanja. Preverjeni so meni, filtriranje, fokus, osnovne kontrastne kombinacije in reduced motion ob nalaganju. Typecheck in build uspešna. [Predogledi in podrobnosti preverjanja](docs/BRAND_COLORS.md). Gre za emulacijo v namiznem Chromu; fizične naprave in drugi brskalniki še niso preverjeni.
 
+## Hero 03 — 3. 11. 2026
+Nova komponenta `Hero.tsx` združuje uvod, naslov »NE SAMO ŠTUDENTI. SKUPNOST.«, uradni gumb za včlanitev in lokalni triptih. Nad 700 px so prikazane tri slike, od 421 do 700 px dve, do 420 px pa poudarjena sredinska slika. Datoteke ostajajo začasni vizuali, kar je jasno označeno; novih fotografij ali zunanjih slikovnih povezav ni.
+
+Sredinska slika se nalaga takoj s prednostjo `high`; preostali sliki in druge slike ohranijo lazy loading. Postavitev rezervira prostor tudi za `SmartImage` fallback. V Chromu preverjenih 11 širin od 320 do 1920 px, oba preloma, lokalne slike, povezava do uvoda, fallback, prehodi in reduced motion. Typecheck in build uspešna. [Predogled: telefon](docs/previews/hero-390.png), [dva stolpca](docs/previews/hero-600.png), [namizje](docs/previews/hero-1440.png). Fizične naprave in drugi brskalniki še niso preverjeni.
+
+## Povezani scroll 04 — 3. 11. 2026
+`ScrollStory.tsx` ponovi lokalne uvodne slike in jih poveže z uvodom v dogodke: slike se povečajo, napis »SKUPAJ.« se zmanjša in umakne, bela ploskev razkrije »DOŽIVI MARIBOR.« ter se nadaljuje v seznam projektov. En pin se uporablja samo nad 700 px širine in 600 px višine; na telefonih in nizkih ležečih zaslonih ostane naravni tok z blagim povečanjem slik.
+
+Reduced motion izklopi scroll in reveal animacije tudi ob spremembi nastavitve med obiskom. Preverjeni drsenje nazaj, čiščenje ob navigaciji, prelomi in stabilnost postavitve; med izmerjenim namiznim prehodom ni bilo zaznanega layout shifta. Typecheck in build uspešna. [Izvedba, preverjanja in predogledi](docs/SCROLL_STORY.md).
+
+## Dogodki 05 — 3. 11. 2026
+Na `/dogodki` je vseh osem projektov z opisi, preverjenimi na neposrednih uradnih straneh KMŠ, in povezavo do vsake predstavitve. Dodani so tematske kategorije s števci, prikaz števila rezultatov in ponastavitev s povrnitvijo fokusa. Kartice se prilagodijo na dva oziroma en stolpec; uporabljajo obstoječe lokalne začasne vizuale.
+
+Stran predstavlja projekte, ne koledarja prihodnjih izvedb; Ftrgatev izrecno povzema napoved iz leta 2025. Typecheck in build uspešna, vseh šest filtrov preverjenih pri osmih širinah od 320 do 1920 px. [Viri, omejitve in predogledi](docs/EVENTS_AND_SOURCES.md).
+
 ## Izziv CTRL+CREATE
 Rok: **14. december 2026**. Ocena: UX/navigacija 25 %, vizualna podoba 25 %, vsebina 20 %, funkcionalnost 20 %, mobilna prilagoditev 10 %. Nujni elementi: predstavitev KMŠ in organov društva, dogodki/novice, članstvo, priložnosti, kontakt in družbena omrežja, newsletter. Oddaja: delujoč prototip, opis ideje 150–300 besed, orodja in deljiva povezava. Gostovanje na lastni domeni ni potrebno.
 
@@ -39,7 +56,7 @@ Rok: **14. december 2026**. Ocena: UX/navigacija 25 %, vizualna podoba 25 %, vse
 Preberi `AGENTS.md`, `docs/CODEX_STEPS.md`, `docs/CONTENT_CHECKLIST.md`, `docs/ASSETS_AND_SOURCES.md` in `docs/SUBMISSION.md`. Izvedi naloge v navedenem vrstnem redu.
 
 ## Orodja in avtorstvo
-React + TypeScript + Vite + GSAP. Struktura in načrt sta nastala s pomočjo ChatGPT. Codex je izvedel audit 01, v koraku 02 poenotil CSS, popravil čiščenje GSAP in dostopna stanja kontrol ter preveril odzivnost v Chromu z orodjem chrome-devtools-cli. Posodobil je tudi dokumentacijo. GitHub Copilot pri teh korakih ni bil uporabljen. Avtor je odgovoren za pregled, testiranje in končno oddajo.
+React + TypeScript + Vite + GSAP. Struktura in načrt sta nastala s pomočjo ChatGPT. Codex je izvedel audit 01, v koraku 02 poenotil CSS, popravil čiščenje GSAP in dostopna stanja kontrol ter preveril odzivnost v Chromu z orodjem chrome-devtools-cli. V koraku 03 je pripravil samostojno hero komponento, uvodno besedilo in odziven lokalni triptih ter preveril postavitve, fallback in povezave v Chromu. V koraku 04 je povezal scroll sceno z dogodki, dodal odzivno upravljanje animacij in sprotni reduced motion ter preveril drsenje, stabilnost in čiščenje. V koraku 05 je preveril uradne projektne vire, povzel opise, uredil kategorije in kartice ter preizkusil filtre in odzivnost. Posodobil je tudi dokumentacijo. GitHub Copilot pri teh korakih ni bil uporabljen. Avtor je odgovoren za pregled, testiranje in končno oddajo.
 
 
 ## Prejšnja posodobitev: KMŠ RED / WHITE (03. 11. 2026; paleta nadomeščena v koraku 02)
