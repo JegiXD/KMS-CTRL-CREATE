@@ -1,0 +1,46 @@
+# KMŠ / CTRL+CREATE — MONOCHROME
+
+Konceptni odziven prototip spletne strani Kluba mariborskih študentov z izrazito festivalsko tipografijo in fotografskim triptihom. Po uporabnikovem navodilu za korak 02 je veljavna smer črna, bela in siva; ta zahteva nadomešča prejšnjo paleto RED / WHITE. Podrobnosti o barvah, tipografiji, razmikih in odzivnosti so v `docs/BRAND_COLORS.md`.
+
+## Hiter zagon
+1. Namesti Node.js 20 ali novejši.
+2. V terminalu: `npm install`
+3. Zaženi: `npm run dev`
+4. Odpri lokalni naslov, ki ga izpiše Vite (običajno `http://localhost:5173`).
+5. Pred oddajo: `npm run typecheck` in `npm run build`.
+
+## GitHub
+Repozitorij: [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) (zaseben; dostop zahteva dovoljenje lastnika). Glavna veja je `main`. Odvisnosti namesti z `npm install`; `node_modules`, `dist`, `.env` datoteke, lokalne IDE nastavitve in TypeScript predpomnilnik niso vključeni. GitHub repozitorij še ne pomeni javno gostujoče spletne strani.
+
+## Trenutno pripravljeno
+- 8 navigacijskih poti: Domov, O nas, Dogodki, Novice, Članstvo, Priložnosti, Kontakt, Newsletter (slednji ni v navigaciji, vendar je dosegljiv na `/newsletter`).
+- Responzivna navigacija, kartice dogodkov, filtriranje dogodkov, seznam novic, prikaz ekipe.
+- Scroll GSAP animacija z `ScrollTrigger`, reveal animacije, `prefers-reduced-motion`.
+- Lokalni uporabnikov logotip v navigaciji in favicon; stari `logo-placeholder.svg` ni uporabljen. Fotografije ostajajo začasni vizuali.
+- Kontaktni obrazec odpre lokalni e-poštni program; newsletter je demo, ki **ne shranjuje podatkov**.
+
+## Pomembno o slikah
+V `public/assets` je **31 abstraktnih nadomestnih JPG vizualov**, ne dejanske fotografije KMŠ. Na iste poti kasneje prekopiraj uradne fotografije z dovoljenjem KMŠ. Če JPG manjka, aplikacija prikaže nadomestni okvir z oznako 'KMŠ / FOTO'. Logotip je priložil uporabnik; ločeno dokazilo o dovoljenju ni priloženo. Celoten popis v `docs/ASSETS_AND_SOURCES.md`.
+
+## Audit 01 — 3. 11. 2026
+`npm install`, `npm run typecheck` in `npm run build` so uspeli z Node.js 22.15.0 in npm 10.9.2. Napak tipov ali gradnje ni bilo; izvorna koda in vizualna smer sta ohranjeni. Statično je preverjenih vseh osem poti, 404 in obstoj 18 uporabljenih lokalnih slikovnih poti; ločen preizkus potrjuje kodiranje kontaktnega `mailto`.
+
+Odprto: ekipa v prototipu se razlikuje od uradne strani, sestava organov še manjka, novice vodijo na domačo stran, newsletter nima integracije. Podrobnosti in viri so v `docs/CHANGELOG.md`. Pregled v brskalniku, na napravah in preverjanje izvirnega PDF briefa niso bili izvedeni; PDF v projektu ni priložen.
+
+## Design system 02 — 3. 11. 2026
+`src/styles.css` je urejen v enoten sistem nevtralnih barv, prilagodljive tipografije, razmikov, mrež, obrazcev in fokusnih stanj. Temen hero in noga dopolnjujeta svetlo vsebino; uporabnikov logotip in obstoječe strani so ohranjeni. Popravljeno je tudi čiščenje GSAP pripete sekcije ob prehodu med stranmi.
+
+V Chromu je preverjenih vseh osem poti in 404 pri širinah 320, 390, 768, 1024, 1440 in 1920 px, brez vodoravnega prelivanja. Preverjeni so meni, filtriranje, fokus, osnovne kontrastne kombinacije in reduced motion ob nalaganju. Typecheck in build uspešna. [Predogledi in podrobnosti preverjanja](docs/BRAND_COLORS.md). Gre za emulacijo v namiznem Chromu; fizične naprave in drugi brskalniki še niso preverjeni.
+
+## Izziv CTRL+CREATE
+Rok: **14. december 2026**. Ocena: UX/navigacija 25 %, vizualna podoba 25 %, vsebina 20 %, funkcionalnost 20 %, mobilna prilagoditev 10 %. Nujni elementi: predstavitev KMŠ in organov društva, dogodki/novice, članstvo, priložnosti, kontakt in družbena omrežja, newsletter. Oddaja: delujoč prototip, opis ideje 150–300 besed, orodja in deljiva povezava. Gostovanje na lastni domeni ni potrebno.
+
+## Nadaljnji koraki
+Preberi `AGENTS.md`, `docs/CODEX_STEPS.md`, `docs/CONTENT_CHECKLIST.md`, `docs/ASSETS_AND_SOURCES.md` in `docs/SUBMISSION.md`. Izvedi naloge v navedenem vrstnem redu.
+
+## Orodja in avtorstvo
+React + TypeScript + Vite + GSAP. Struktura in načrt sta nastala s pomočjo ChatGPT. Codex je izvedel audit 01, v koraku 02 poenotil CSS, popravil čiščenje GSAP in dostopna stanja kontrol ter preveril odzivnost v Chromu z orodjem chrome-devtools-cli. Posodobil je tudi dokumentacijo. GitHub Copilot pri teh korakih ni bil uporabljen. Avtor je odgovoren za pregled, testiranje in končno oddajo.
+
+
+## Prejšnja posodobitev: KMŠ RED / WHITE (03. 11. 2026; paleta nadomeščena v koraku 02)
+Pred korakom 02 je bila uporabljena rdeče-bela paleta. Po novem uporabnikovem navodilu je nadomeščena z nevtralno paleto. Priložen uporabnikov logotip ostaja v `public/assets/branding/kms-logo-original.png`, za navigacijo obrezan v `kms-logo-header.png`, favicon pa je `public/favicon.png`. Stari placeholder logotip ni uporabljen.
