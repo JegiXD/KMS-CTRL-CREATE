@@ -30,9 +30,14 @@ Preglej `docs/ASSETS_AND_SOURCES.md`. Če so uradne fotografije v `public/assets
 ## 10 — Končni pregled
 Preveri vse poti, gumbe, mobilni meni, zunanje povezave, kontrast, tipkovnico, zmogljivost animacij, reduced motion, build, vsebino PDF briefa. Končno dokumentacijo, 150–300 besed opisa in transparentno AI izjavo pripravi v `docs/SUBMISSION.md`. Ne trdi, da so bile funkcije ali testi izvedeni, če niso bili.
 
-
 ## Posodobitev: KMŠ RED / WHITE (03. 11. 2026)
 Ohrani obstoječo strukturo, vse strani in scroll animacije. Nova paleta: primarna rdeča `#E32636`, bela `#FFFFFF`, sekundarna svetlo rožnata `#FFF0F2` in temna barva besedila `#181818`. Priložen uporabnikov logotip je v `public/assets/branding/kms-logo-original.png`, za navigacijo obrezan v `kms-logo-header.png`, favicon pa je `public/favicon.png`. Ne vračaj črnega ozadja in ne uporabljaj starega placeholder logotipa.
 
-## Korak 02 — novejše uporabnikovo navodilo (3. 11. 2026)
-Uporabnik je po RED / WHITE posodobitvi izrecno naročil črno-belo-siv oblikovni sistem. Ta zahteva nadomešča zgornjo rdeče-belo paleto in prepoved črnega ozadja. Veljavni sistem je opisan v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Uporabnikov logotip, favicon, struktura, poti in scroll animacije ostajajo ohranjeni.
+## Zgodovinsko: korak 02 — monokromatska smer (3. 11. 2026)
+Uporabnik je po RED / WHITE posodobitvi izrecno naročil črno-belo-siv oblikovni sistem. Takrat je ta zahteva nadomestila zgornjo rdeče-belo paleto in prepoved črnega ozadja; ponovno navodilo RED / WHITE spodaj jo sedaj nadomešča. Veljavni sistem je opisan v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Uporabnikov logotip, favicon, struktura, poti in scroll animacije ostajajo ohranjeni.
+
+## Veljavno navodilo — KMŠ RED / WHITE (ponovno potrjeno 4. 11. 2026)
+Najnovejše uporabnikovo navodilo ponovno določa primarno rdečo `#E32636`, belo `#FFFFFF`, sekundarno svetlo rožnato `#FFF0F2` in temno besedilo `#181818`. Nadomešča monokromatsko zahtevo koraka 02. Ne vračaj črnih UI ozadij; ohrani vse strani, strukturo, scroll animacije, uporabnikov `kms-logo-header.png` in `public/favicon.png`. Veljavni sistem je v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Zgodovinski zapisi in predogledi pred to potrditvijo opisujejo prejšnjo paleto.
+
+## Najnovejše navodilo — brez slikovnih predogledov (4. 11. 2026)
+Uporabnik je naročil izbris vseh datotek docs/previews in prepovedal nadaljnje generiranje/shranjevanje slikovnih predogledov. Testiranje v brskalniku nadaljuj brez screenshotov. Portreti ekipe so po novem barvni; domača stran ima pod hero tri fiksne števce 45 / 753 / 29.

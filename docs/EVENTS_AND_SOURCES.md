@@ -38,6 +38,4 @@ Viri so bili pregledani 3. 11. 2026. Neposredni GET vseh osmih spodnjih URL-jev 
 - Prehod Domov → Dogodki ohrani štiri kartice na domači strani, prikaže vseh osem na podstrani in odstrani pin prejšnje scroll scene. Preizkušen slikovni error fallback brez spremembe višine okvirja. Brez napak v konzoli pri teh interakcijah.
 - Vseh osem lokalnih slikovnih poti obstaja; zunanji viri so ob preverjanju vrnili HTTP 200. Nakup, prijava ali oddaja zunanjih obrazcev niso bili izvedeni.
 
-Predogledi: [filtri na telefonu](previews/events-390.png), [namizni pregled](previews/events-1440.png), [kartice na namizju](previews/events-cards-1440.png), [kartica na telefonu](previews/events-cards-390.png).
-
 Preverjanje je potekalo v namiznem Chromu z emulacijo širin, brez fizičnih naprav ali drugih brskalnikov. Odobrene fotografije in aktualni termini ostajajo za potrditev s klubom. AI: Codex je povzel preverjene uradne vire, pripravil podatkovni model, stran, CSS, preverjanja s chrome-devtools-cli in dokumentacijo. Copilot ni bil uporabljen.

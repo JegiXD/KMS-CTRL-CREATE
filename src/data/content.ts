@@ -1,6 +1,6 @@
 // Pregledno mesto za urejanje prikazane vsebine.
 export const membershipUrl = 'https://studentski-klubi.si/public-forms/jui1g3swbxz';
-export const socials = { instagram: 'https://www.instagram.com/klubmariborskihstudentov/', facebook: 'https://www.facebook.com/KlubMariborskihStudentov/' };
+export { socials } from './contact';
 export const eventCategories = [
   { id: 'all', label: 'Vsi projekti' },
   { id: 'music', label: 'Glasba' },
@@ -72,10 +72,4 @@ export const news = [
   {title:'Razpis za svetnika Sveta ŠOLS – september 2026',date:'4. 9. 2026',url:'https://www.klub-kms.si/'},
   {title:'Vabilo na 3. redno skupščino KMŠ v letu 2026',date:'4. 9. 2026',url:'https://www.klub-kms.si/'}
 ];
-export const team = [
-  {name:'Anja Hojsak',role:'Predsednica',photo:'/assets/team/anja-hojsak.jpg'},
-  {name:'Ema Staklenac',role:'Podpredsednica',photo:'/assets/team/ema-staklenac.jpg'},
-  {name:'Gabriela Brodnjak',role:'Upravni odbor',photo:'/assets/team/gabriela-brodnjak.jpg'},
-  {name:'Jan Ozvaldič',role:'Upravni odbor',photo:'/assets/team/jan-ozvaldic.jpg'},
-  {name:'Doroteja Plohl',role:'Upravni odbor',photo:'/assets/team/doroteja-plohl.jpg'}
-];
+export { team } from './about';

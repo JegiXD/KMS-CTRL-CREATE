@@ -39,7 +39,7 @@ export default function ScrollStory() {
           scrollTrigger: {
             id: 'kms-story',
             trigger: stage,
-            start: 'top top',
+            start: () => `top ${document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0}px`,
             end: () => `+=${Math.round(stage.clientHeight * 1.5)}`,
             pin: true,
             // Keep the stage in its reserved flow instead of switching to position:fixed.
