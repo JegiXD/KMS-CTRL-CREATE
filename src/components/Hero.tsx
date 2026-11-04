@@ -1,4 +1,5 @@
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { membershipUrl } from '../data/content';
 import { SmartImage } from './SmartImage';
 
@@ -28,22 +29,19 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-columns">
-        {panels.map((panel, index) => (
+        {panels.map(panel => (
           <figure className={`hero-panel hero-panel-${panel.position}`} key={panel.position}>
-            <SmartImage
-              src={`/assets/hero/hero-${panel.position}.jpg`}
-              alt={panel.alt}
-              className="hero-img"
-              loading={panel.position === 'center' ? 'eager' : 'lazy'}
-              fetchPriority={panel.position === 'center' ? 'high' : 'auto'}
-            />
-            <figcaption><span>0{index + 1} / {panel.label}</span><span aria-hidden="true">↗</span></figcaption>
+            <Link className="hero-panel-link" to="/dogodki" aria-label={`Odkrij dogodke KMŠ: ${panel.label}`}>
+              <SmartImage
+                src={`/assets/hero/hero-${panel.position}.jpg`}
+                alt={panel.alt}
+                className="hero-img"
+                loading={panel.position === 'center' ? 'eager' : 'lazy'}
+                fetchPriority={panel.position === 'center' ? 'high' : 'auto'}
+              />
+            </Link>
           </figure>
         ))}
-      </div>
-      <div className="hero-bottom">
-        <span className="hero-image-note">ZAČASNI VIZUALI / FOTOGRAFIJE KMŠ SLEDIJO</span>
-        <a href="#intro">ODKRIJ NAŠO ZGODBO <ArrowDownRight size={18} aria-hidden="true" /></a>
       </div>
     </section>
   );

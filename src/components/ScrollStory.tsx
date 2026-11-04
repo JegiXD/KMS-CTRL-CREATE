@@ -39,7 +39,7 @@ export default function ScrollStory() {
           scrollTrigger: {
             id: 'kms-story',
             trigger: stage,
-            start: () => `top ${document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0}px`,
+            start: 'top top',
             end: () => `+=${Math.round(stage.clientHeight * 1.5)}`,
             pin: true,
             // Keep the stage in its reserved flow instead of switching to position:fixed.
@@ -71,7 +71,14 @@ export default function ScrollStory() {
     // Fonts may resolve after mount; refresh measurements without waiting on lazy images.
     let mounted = true;
     document.fonts.ready.then(() => { if (mounted) ScrollTrigger.refresh(); });
-    return () => { mounted = false; media.revert(); };
+    // Late font swaps can resize earlier sections and leave the pin start stale.
+    let timer = 0;
+    const observer = new ResizeObserver(() => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => { if (mounted) ScrollTrigger.refresh(); }, 120);
+    });
+    for (let node = el.previousElementSibling; node; node = node.previousElementSibling) observer.observe(node);
+    return () => { mounted = false; window.clearTimeout(timer); observer.disconnect(); media.revert(); };
   }, []);
 
   return (
@@ -92,7 +99,7 @@ export default function ScrollStory() {
         <div className="story-next">
           <div className="story-next-inner">
             <p className="eyebrow">02 / DOGODKI & PROJEKTI</p>
-            <h2 id="story-next-title">DOŽIVI <em>MARIBOR.</em></h2>
+            <h2 id="story-next-title">DOŽIVI<br /><em>MARIBOR.</em></h2>
             <p className="lead">Iz skupnih idej nastanejo doživetja. Odkrij dogodke in projekte KMŠ.</p>
           </div>
         </div>
