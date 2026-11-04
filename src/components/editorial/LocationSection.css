@@ -1,0 +1,25 @@
+.location-section { background: var(--bg); border-top: 1px solid var(--ink); }
+.location-heading { margin-bottom: clamp(2rem, 4vw, 4rem); }
+.location-heading h2 { margin-bottom: 0; }
+.location-layout { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.5fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); }
+.location-layout > * { min-width: 0; }
+.location-address { display: flex; align-items: flex-start; gap: 1rem; font-style: normal; }
+.location-address > svg { color: var(--deep-red); margin-top: 0.2rem; }
+.location-address strong { display: block; margin-bottom: 0.6rem; font: 700 clamp(1.5rem, 2.5vw, 2rem)/1.2 'Space Grotesk', sans-serif; }
+.location-address span { display: block; line-height: 1.65; }
+.location-directions { margin-top: 1.75rem; }
+.location-hours { margin-top: 2.75rem; padding-top: 1.5rem; border-top: 1px solid var(--ink); }
+.location-hours h3 { display: flex; align-items: center; gap: 0.6rem; font-size: 1.15rem; letter-spacing: -0.02em; }
+.location-hours dl { margin: 0; font-size: 0.875rem; }
+.location-hours dl > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1rem; padding-block: 0.8rem; border-bottom: 1px solid var(--line); }
+.location-hours dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.location-hours .helper a { text-decoration: underline; }
+.location-map-panel { border: 1px solid var(--ink); padding: 0.5rem; background: white; box-shadow: 6px 6px 0 var(--secondary); }
+.location-map-label { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6rem 0.75rem; color: white; background: var(--navy); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.1em; }
+.location-map { display: block; width: 100%; height: clamp(23rem, 36vw, 35rem); border: 0; background: var(--surface); }
+.location-map-caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; margin: 0; padding: 0.75rem 0.25rem 0.25rem; color: var(--muted); font-size: 0.625rem; }
+@media (max-width: 900px) {
+  .location-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .location-map { height: clamp(20rem, 62vw, 30rem); }
+  .location-hours { max-width: 32rem; }
+}

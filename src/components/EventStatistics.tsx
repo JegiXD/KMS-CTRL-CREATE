@@ -14,7 +14,8 @@ export default function EventStatistics() {
     const counters = Array.from(section.current.querySelectorAll<HTMLElement>('[data-count]'));
     const finish = () => counters.forEach(counter => { counter.textContent = counter.dataset.count!; });
     const media = gsap.matchMedia();
-    media.add('(prefers-reduced-motion: no-preference)', () => {
+    media.add({ reduced: '(prefers-reduced-motion: reduce)', motion: '(prefers-reduced-motion: no-preference)' }, context => {
+      if (context.conditions?.reduced) { played.current = true; finish(); return; }
       if (played.current) return;
       const timeline = gsap.timeline({
         onStart: () => { played.current = true; },
@@ -23,10 +24,10 @@ export default function EventStatistics() {
       counters.forEach((counter, index) => {
         timeline.fromTo(counter, { innerText: 0 }, {
           innerText: Number(counter.dataset.count),
-          duration: 1.6,
+          duration: 0.9,
           ease: 'power2.out',
           snap: { innerText: 1 },
-        }, index * 0.12);
+        }, index * 0.07);
       });
       return finish;
     }, section.current);

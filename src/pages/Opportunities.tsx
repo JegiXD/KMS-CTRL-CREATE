@@ -1,3 +1,4 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
 import { ArrowUpRight, Mail } from 'lucide-react';
 import { MembershipLink } from '../components/MembershipLink';
 import { ideasInfoUrl, membershipInfoUrl, opportunities } from '../data/participation';
@@ -5,10 +6,11 @@ import { ideasInfoUrl, membershipInfoUrl, opportunities } from '../data/particip
 export default function Opportunities() {
   return (
     <>
-      <section className="page-hero participation-hero" aria-labelledby="opportunities-title">
+      <section className="page-hero has-photo participation-hero" aria-labelledby="opportunities-title">
         <p className="eyebrow">05 / PRILOŽNOSTI</p><h1 id="opportunities-title">TVOJA IDEJA.<br /><em>SKUPNA ZGODBA.</em></h1>
         <p className="lead">Organiziraj, ustvarjaj ali predlagaj nekaj novega. Izberi način, kako bi želel sodelovati z ekipo KMŠ.</p>
         <div className="participation-actions"><a className="pill" href="#nacini-sodelovanja">NAJDI SVOJ NAČIN ↓</a><MembershipLink label="ŽELIM SE VČLANITI" className="text-link membership-text-link" /></div>
+        <EditorialPhoto image="kreativa" className="page-hero-photo" />
       </section>
       <section id="nacini-sodelovanja" className="section opportunities-section" aria-labelledby="ways-title">
         <p className="eyebrow">TRI POTI DO SODELOVANJA</p><h2 id="ways-title">IZBERI <em>SVOJO VLOGO.</em></h2>

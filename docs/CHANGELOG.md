@@ -188,3 +188,97 @@ Opomba 4. 11. 2026: vsi slikovni predogledi iz zgodovinskih zapisov so na uporab
 - Na izrecno zahtevo izbrisanih vseh 45 slikovnih predogledov. Odstranjene Markdown povezave do njih; AGENTS/CODEX_STEPS beležita prepoved nadaljnjega zajema/generiranja screenshotov. Newsletter neaktiven prikaz in npm preview ukaz nista slikovna artefakta in ostajata ohranjena.
 - Typecheck in build uspešna. Chrome brez screenshotov: širine 320/390/768/1440, pravilne oznake in postavitev, vmesna ter končna števila, stabilne dimenzije, brez ponavljanja ob drsenju nazaj ali prelivanja. Trije barvni WebP portreti in dve inicialki preverjeni. Reduced motion ob nalaganju in med animacijo konča pri 45/753/29. Pripeta zgodba in trije prehodi med stranmi brez podvojenih sekcij/pinov; brez napak v konzoli.
 - README, barvni sistem, viri ekipe in SUBMISSION posodobljeni. Vir števil je uporabnik; neodvisno preverjanje aktualnosti ni izvedeno. Fizične naprave in drugi brskalniki niso preverjeni. AI: Codex je izvedel komponento, CSS, izbris predogledov, preverjanja s chrome-devtools-cli brez zajema slik in dokumentacijo; Copilot ni bil uporabljen.
+
+## 2026-11-04 — Pregled uporabnikove prenove s Copilotom
+
+- Pregledana uporabnikova prenova domače strani (13fa094, Copilot soavtor) in obstoječa rdeča podlaga. Ohranjeni so klikljiv triptih, razmiki, centriran naslov števcev, bobni ob besedilu, noga in neaktivna newsletter polja.
+- Odstranjena header auto-hide logika in začetni zdrs; senca ostane. Pin start/višina znova upoštevata stalno viden header, brez spreminjanja poteka timeline. Odstranjena negativna geometrija kitare čez rob; koloni besedila/bobnov uporabljata minmax in motiv ostane v lastni širini.
+- Širjenje hero stolpcev omejeno na širine nad 700 px s hoverjem in brez reduced motion; dodan prehod povečave slike. Beli gumbi vrnjeni na belo osnovo: rdeča/bela 4,57 : 1 namesto 4,20 : 1 na kremni. Geometrijski vzorec je tanjši (1,6) in manj intenziven (32 %), temnejša rdeča #D92333 ostane.
+- Typecheck in build uspešna. Brez screenshotov: osem poti pri 320/390/700/701/768/1440 (48 kombinacij), brez prelivanja, vidna navigacija, ohranjena barvna ekipa in neaktivna noga. Dejanski hover 1/2/3/3 stolpci pri 390/700/701/1440 in klik hero → dogodki. Pin, razkritje, vidnost naslova in cleanup pri 701×601, 768×1024, 1024×601 in 1440×1000. Brez napak v konzoli.
+- README, BRAND_COLORS, evidenca vzorca in SUBMISSION posodobljeni. Brez novih knjižnic, fotografij ali screenshotov. Fizične naprave in drugi brskalniki niso preverjeni. AI: uporabnikova prenova s Copilotom, ciljni pregled/popravki in preverjanja s Codexom.
+
+## 2026-11-04 — Uvoz foto paketa z dovoljenjem KMŠ
+
+- Uporabnik je izrecno potrdil dovoljenje KMŠ za prenos/uporabo slik. KMS-Foto-Paket najden v dist in prestavljen v koren, da ga gradnja ohrani. Popravljen ASCII User-Agent (prej latin-1 napaka na KMŠ), kodiranje URL-jev in projektne poti downloaderja.
+- Prenesenih 150 datotek prek uradnih strani in javnega WordPress API; še pet dodatnih izvirnikov za izbor. Nabor vsebuje tudi plakate/logotipe in različne dimenzije, ne 155 različnih prizorov. Izvirniki ohranjeni v paketu; vseh 150 začetnih datotek in dodatne izbrane datoteke dekodirane ter primerjane s SHA-256.
+- Osem projektnih fotografij vizualno pregledanih iz izvirnikov in povezanih z dejanskimi glavnimi galerijami/naslovnimi slikami projektov. Popravljene napačne samodejne kategorije. Hero in story uporabljata skupne Ftrgatev/ODER/Cantus vire, osem kartic dejanske fotografije, podnapise virov in konkretne alt opise. Označene so pretekle izvedbe. Portreti/logotip ter uporabnikova zadnja postavitev so ohranjeni.
+- JPEG/WebP do 1280 px, brez povečave ali obreza na disku. WebP skupaj 714.114 B proti JPEG 1.273.838 B (43,9 % manj). Brez retuše ali brisanja podpisov iz izvirnikov; CSS ohrani obstoječi editorial izrez in sivinski prikaz projektov. Imena avtorjev prepisana le iz razvidnih podpisov, drugi navedeni kot vir. Priprava s scripts/prepare-kms-photos.py.
+- Surova kopija public/assets/kms-imported je po izboru odstranjena, vsi izvirniki ostanejo zunaj spletne gradnje. Preverjeni TypeScript katalog nadomesti samodejne približne oznake. Manifest izbora in prenosa ter permission status dokumentirani v PHOTO_IMPORT.md, KMS_PHOTO_SELECTION.json in osveženem javnem popisu 46 rastrskih datotek.
+- Typecheck in build uspešna. Produkcijski Chrome brez screenshotov: tri poti × šest širin 320/390/700/701/768/1440 (18 kombinacij), lokalno dekodiranje in WebP, deljene hero/story poti, alt, viri, prioriteta hero, osem kartic/filtri, fiksni števci, barvni portreti in sticky header, brez prelivanja. Reduced motion brez pinov, dodatno namizni pin/prehod/cleanup. Brez napak v konzoli. Fizične naprave in drugi brskalniki niso preverjeni.
+- README, kontrolni seznam, viri in SUBMISSION posodobljeni. AI: Codex je izvedel prenos, preverjanje, izbor, optimizacijo s Pillow, React/CSS in preverjanja. Fotografije niso AI generirane ali retuširane; Copilot pri tem uvozu ni bil uporabljen.
+
+## 2026-11-04 — Celovita experimental editorial prenova
+
+- Pred izvedbo pregledani projekt, AGENTS/README/dokumentacija, poti, CSS, obstoječe slike/branding in GSAP. Uporabnikova referenca je pregledana iz priponke; ustvarjen EDITORIAL_REDESIGN_PLAN.md. Prenova je izvedena v obstoječih datotekah, brez nove aplikacije ali odvisnosti.
+- Nov skupni editorial.css: Anton/DM Sans/Space Grotesk, svetla rdeče-bela podoba z globoko rdečo in omejenimi navy poudarki. Plastena naslovnica »Maribor. Mladi. Brez meja.«, izvirne SVG poteze/napisi/stickerji, fotografske razprostrte kompozicije in enaka identiteta vseh podstrani ter noge. Ohranjeni vsi podatki/poti, barvni portreti, uporabnikov logo/favicon in fiksni števci.
+- Animacije razdeljene v heroAnimations/textReveals/waveMotion in useGsapContext. Trije fotografski valovi dejansko sledijo odzivni SVG Bézier poti prek MotionPathPlugin in ScrollTrigger scrub. Največ en pin pri ≥1024 × 680 px; višina začetka izmerjena pod headerjem. Manjši zasloni imajo ožjo pot in manjšo rotacijo. Reduced motion sproti vrne statično mrežo in izklopi Lenis. Popravljen vrstni red zadnje CSS media poizvedbe, da ne prepiše avtomatske višine statične galerije.
+- Novi kmsImages semantični manifest in EditorialPhoto ponovno uporabita osem obstoječih lokalnih WebP/JPEG fotografij s krediti in alt opisi. Izvirniki niso izbrisani ali retuširani. Dostopni viri galerij so ločeni od premikajočih se elementov, zato ni nevidnih fokusljivih povezav. Glavna hero slika je prioritizirana, ostale lazy.
+- Preoblikovane strani O nas, Dogodki, Novice, Članstvo, Priložnosti, Kontakt in Newsletter. Meni podpira Enter/Tab/Escape, zapiranje po navigaciji ter klik zunaj. Uradni membership CTA, mailto osnutek in disabled newsletter so ohranjeni. Tri novice zdaj odpirajo preverjene izvirne članke namesto naslovnice. Organi/kontakt/ure ponovno primerjani z uradnima stranema 4. 11. 2026, datum pregleda posodobljen.
+- Uspešni npm install, typecheck in build ter zagon dev strežnika za razvojni Strict Mode. Chrome brez screenshotov: 36 kombinacij osmih poti in 404 pri 375/768/1024/1440 px, brez manjkajočih slik ali zaznanih prelivanj po popravku tabličnih razmikov. Preverjeni vsi filtri, tipkovniški meni, validacija kontakta brez pošiljanja, barvni portreti, štirje sprotni reduced-motion preklopi, SPA cleanup, en pin v Strict Mode ter dejanske transformacije v osmih namiznih scroll vzorcih. Podrobni rezultati in dodatni zaključni pregled v EDITORIAL_REDESIGN.md.
+- README in AGENTS preurejena za veljavno stanje; dopolnjeni SUBMISSION, barve, kontrolni seznam, viri, scroll dokumentacija in resnična AI izjava. Spremembe iz predhodnih faz ostajajo ohranjene. Ta različica ni objavljena ali poslana na GitHub.
+- AI: Codex je izvedel analizo, React/TS/CSS/SVG, GSAP, vključitev obstoječih fotografij, preverjanje uradnih virov, native npm in Chrome DOM/tipkovnične teste ter dokumentacijo. Copilot pri tej prenovi ni bil uporabljen; njegov prejšnji prispevek ostaja naveden. Brez imagegen/Figma, generiranja fotografij ali screenshotov. Fizične naprave, drugi brskalniki, celoviti WCAG/performance audit, newsletter backend in preverjanje nepriloženega PDF ostajajo omejitve.
+
+Zaključni dodatek: po zadnjem CSS popravku preverjenih še 10 kombinacij 375×844 / 768×1024 / 1024×768 / 1024×600 / 1440×1000 z obema nastavitvama gibanja. Brez prelivanja dokumenta ali statične galerije; pin pri 1024×768 in 1440×1000 samo brez reduced motion, sicer nič pinov. Header v scroll vzorcih ostane na y=0. Končni build: JS 485,83 kB / gzip 163,14 kB; CSS 57,78 kB / gzip 11,62 kB. Git diff --check brez pripomb.
+
+## 2026-11-04 — Lokacija Pisarna na kontaktu
+
+- Dodana `src/components/editorial/LocationSection.tsx` in scoped `LocationSection.css`, vključeni samo v `src/pages/Contact.tsx` pred zaključnimi e-novicami. Druge komponente, poti in newsletter niso spreminjani.
+- Interaktivni lazy Google Maps embed za Pisarno na Vetrinjski ulici 30 v Mariboru ter »Prikaži pot« z Google Maps directions (`api=1`, kodiran cilj, nov zavihek). Naslov in ikoni lokacije/ur, rdeče-beli editorial prikaz s tankim navy napisom, en stolpec do 900 px.
+- Uradne ure KMŠ ponovno potrjene na klub-kms.si in prikazane iz skupnega kataloga; niso predstavljene kot urnik lokala. Obstoječi scoped GSAP reveal in reduced-motion/cleanup brez dodatnega pina ali odvisnosti.
+- Typecheck/build uspešna. Osem Chrome kombinacij štirih širin z obema nastavitvama gibanja: brez prelivanja, pravilen title/lazy/directions, dejanski fade/pomik in statični reduced motion. Embed HTTP 200, dostopna regija Zemljevid, brez error sporočil pri zaključnem pregledu. Brez screenshotov, brez fizičnih naprav ali dejanskega načrtovanja poti. Podrobnosti in viri v CONTACT_AND_NEWSLETTER.md.
+- README in SUBMISSION dopolnjena. Codex je napisal React/CSS, preveril uradna vira in izvedel npm ter Chrome DOM preverjanja; Copilot/imagegen nista bila uporabljena.
+
+## 2026-11-04 — Fotografije: manj ponavljanja, manjši okvirji, preverjeni profili
+
+- Ohranjen editorial sistem, poti in GSAP časovnice. Zmanjšani uvodni, članski, projektni in valovni foto okvirji; vodoravne fotografije podstrani v razmerju 3 : 2. Manjši portreti in 56 px spremljevalni portreti vodij.
+- Štirje dodatni preverjeni prizori iz paketa: dva Cantusa, občinstvo KMŠ ODRA in široki kader Ftrgatve, v lokalnem WebP/JPEG. Razporejeni po O nas, članstvu, dogodkih in valovih; kontakt dobi vsebinsko ustrezno obstoječo Pisarno. Manj ponavljanja dobrodelnosti/Cantusa. Originali ohranjeni.
+- Šest preverjenih person-photo povezav: trije obstoječi portreti in novi Enej/Eva/Zala. Urbanova uradna ilustracija je vključena z jasno oznako, vlogo in e-pošto, ne kot izmišljeni portret; Jan Kolbič ostane na inicialkah. Pravi Urbanov portret ni najden, druge nepotrjene identitete ostajajo odprte.
+- Dodani centralni katalog oseb, fotografske dopolnitve, reprodukcijska skripta in evidenca izvorov/hashes; javni rastrski popis dopolnjen na 62. README/SUBMISSION in relevantni viri posodobljeni.
+- Typecheck/build uspešna. 36 kombinacij poti/širin brez manjkajočih slik, prelivanja ali pregledanih prekrivanj, preverjeno povezovanje oseb/portretov in Urbanov mailto; še deset wave/reduced-motion kombinacij brez prelivanja z ustreznim pinom/cleanup postavitve. Brez screenshotov; fizične naprave in drugi brskalniki niso preverjeni.
+- Codex je izvedel pregled uradnih oznak in originalov, optimizacijo s Pillow, TS/React/CSS ter npm/Chrome DOM preverjanja. Brez AI generiranja obrazov, imagegen ali Copilota. Celotna revizija in odprte potrditve v PHOTOGRAPHY_AUDIT.md.
+
+## 2026-11-04 — Hitrejše animacije in UX
+
+- Hero 1,31→0,67 s; tekstovni reveal 0,8–0,85→0,45 s, manjši odmik. Glavna fotografija in CTA niso zakasnjeno skriti. Poenoten tudi starejši Reveal. Števci 1,6→0,9 s, ohranijo končne vrednosti ob spremembi reduced motion.
+- Glavni pin skrajšan z 2,2 na 1,15 viewporta in omejen na ≥1280 × 760 px. Kratkejši mobilni/vezni odri, scrub 0,25/0,15 s in največ približno dve hkratni fotografiji. Zadnja fotografija ostane vidna. Povezana SVG grafika, resnične fotografije in poti ohranjene.
+- Skupni refreshScheduler združi font/image dogodke, odstrani preklicane zahteve in prepreči več hkratnih dragih refresh klicev. Lenis dohiteva hitreje (lerp 0,2), hover 0,3 s, indikator se po treh ciklih ustavi. Fokus se ob menjavi poti prenese na main, dekoracija ne prekriva hero črk.
+- Typecheck/build uspešna, vseh osem strani + 404 pri štirih širinah brez zaznanih težav. Tipkovniški meni, šest filtrov, native validacija, štirje motion preklopi, SPA cleanup/Strict Mode in deset wave/motion kombinacij preverjeni. Izmerjeni dejanski hero 0,67 s, 1150 px pina pri 1000 px višine, vidna zadnja fotografija in en združen refresh. 20 zunanjih povezav HTTP 200, brez manjkajočih notranjih sider. Brez screenshotov; omejitve in natančne meritve v ANIMATION_UX_OPTIMIZATION.md.
+- README, AGENTS, SUBMISSION in SCROLL_STORY posodobljeni. Codex je izvedel TS/React/CSS ter dejanske npm/Chrome preizkuse; brez novih knjižnic, fotografij ali uporabe Copilota. Brez trditve o Lighthouse/FPS ali fizičnih napravah.
+
+## 2026-11-04 — Odmik opisa ODRA in večji portreti sekcij
+
+- Po dodatnem uporabnikovem naročilu je opis KMŠ ODRA prestavljen pod fotografijo (margin-top 1,25 rem), brez negativnega prekrivanja.
+- Uvodne fotografije podstrani povečane na 28 % / do 24 rem, mobilno 82 % / do 22 rem. Domači hero s to dopolnitvijo ni povečan.
+- Področja in sekcije imajo pregledne vrstične profile z barvnimi 160 px portreti, mobilno 128 px, imenom in področjem; širše namizje v dveh stolpcih. Podatki/identitete so ohranjeni.
+
+Zaključni pregled fotografske prilagoditve: 36 kombinacij poti/širin brez zaznanih težav. Opis ODRA več ne prekriva slike; izmerjen pozitivni odmik pri 375/768/1024/1440 px. Vodje področij imajo potrjenih 128/160 px prikaznih mer. Typecheck/build in git diff --check uspešni; brez screenshotov.
+
+## 2026-11-04 — Odstranjena črta pred članstvom
+
+Na uporabnikovo zahtevo je odstranjen ScrollConnector med glavno fotografsko galerijo in sekcijo »04 / Tvoj prostor je tukaj«, skupaj z njegovo puščico in vmesnim prostorom. Ostala ozadja, fotografije, članstvo in animacije ostanejo ohranjeni. Codex je izvedel ciljno spremembo Home.tsx; brez screenshotov. Typecheck in build uspešna.
+
+## 2026-11-04 — Še večje uvodne fotografije podstrani
+
+Na uporabnikovo zahtevo so fotografije ob glavnih naslovih O nas, Dogodki, Novice, Članstvo, Priložnosti, Kontakt in Newsletter povečane z 28 % / največ 24 rem na 38 % / največ 34 rem. Mobilno z 82 % / največ 22 rem na 92 % / največ 30 rem. Tablična širina besedila/CTA je omejena na 48 %, da ostane jasen razmik. Domači hero, druge fotografije in animacije niso spremenjeni.
+
+Typecheck/build uspešna. Chrome brez screenshotov: 36 kombinacij poti/širin, brez odrezanih uvodnih fotografij, zaznanih prekrivanj odstavkov/gumbov, manjkajočih slik ali vodoravnega prelivanja. Codex je prilagodil samo obstoječi editorial CSS in dokumentacijo; brez novih fotografij ali knjižnic.
+
+## 2026-11-04 — Mobilni prikaz in animiran hamburger
+
+- Gumb hamburger→križec ima kratko 200 ms CSS animacijo in 48 px površino za dotik. Mobilni meni se gladko odpre/zapre z 180/220 ms prehodom, večjimi povezavami in jasno aktivno stranjo. Brez novih knjižnic ali posega v strukturo poti.
+- Zaprta navigacija je inert, tudi med izhodnim prehodom. Reduced motion izklopi prehode. Ohranjeni Escape, zapiranje po navigaciji in klik zunaj; popravljeno še zapiranje po izbiri trenutne strani. Resize na namizje odstrani inert in vrne običajni nav.
+- Mobilni hero CTA je polne širine, header upošteva safe-area, polja imajo 1 rem pisavo, hero sticker je na fotografski plasti. Kratki/nižji zasloni ohranijo drsljiv meni z dosegljivim uradnim membership CTA.
+- Typecheck/build uspešna, 36 responsive primerov vseh poti brez zaznanih težav. Deset dodatnih menu/motion kombinacij pri 320/375/430/768 px in nizkem 700×360 zaslonu: preverjeni hamburger, panel, inert, CTA in reduced motion. Enter/Tab/Escape, trenutna stran, menjava strani in resize v namizje uspešni, brez error sporočil pri zaključnem pregledu. Brez screenshotov; fizične naprave/Safari niso preverjeni.
+- README/SUBMISSION dopolnjena; podrobnosti v MOBILE_NAVIGATION.md. Codex je pripravil React/CSS, npm/Chrome DOM preizkuse in dokumentacijo. Brez novih fotografij, odvisnosti ali Copilota.
+
+## 2026-11-04 — Nežno poudarjena ozadna grafika
+
+Na uporabnikovo zahtevo je opacity skupne grafike domače strani povečana z 0,22 na 0,28, obris ozadnih besed z 1 na 1,15 px. Oznaka KMŠ za uvodi podstrani ima 22 % namesto 17 % opacity in 1,1 px obris. Plasti, pointer-events none, postavitev in animacije ostanejo enaki; odstranjena črta pred članstvom ni vrnjena. Codex je izvedel ciljno CSS prilagoditev. Typecheck/build uspešna; brez screenshotov ali dodatnega brskalniškega pregleda za to majhno spremembo.
+
+## 2026-11-04 — Uskladitev projektne dokumentacije
+
+- Glavni README je preurejen kot tehnični in projektni uvod, usklajen s trenutno implementacijo poti, animacij, barv, dostopnosti in omejitev.
+- Dodani so prijavni dokument za CTRL+CREATE, pregled virov in navedb, dokument avtorstva/AI ter razvojna zgodovina.
+- Izvirni PDF brief in javni demo URL nista na voljo; dokumentacija ju ne predstavlja kot potrjena.
+- `SUBMISSION.md` je označen kot starejši delovni osnutek; aktualni kontrolni seznam je `CTRL_CREATE_SUBMISSION.md`.
+- Dokumentacija je pripravljena brez spreminjanja aplikacijske funkcionalnosti ali ustvarjanja posnetkov zaslona.

@@ -41,3 +41,6 @@ Najnovejše uporabnikovo navodilo ponovno določa primarno rdečo `#E32636`, bel
 
 ## Najnovejše navodilo — brez slikovnih predogledov (4. 11. 2026)
 Uporabnik je naročil izbris vseh datotek docs/previews in prepovedal nadaljnje generiranje/shranjevanje slikovnih predogledov. Testiranje v brskalniku nadaljuj brez screenshotov. Portreti ekipe so po novem barvni; domača stran ima pod hero tri fiksne števce 45 / 753 / 29.
+
+## Najnovejše navodilo — celovita experimental editorial prenova (4. 11. 2026)
+Izvedena neposredno v obstoječem projektu po uporabnikovem 22-faznem naročilu: analiza/reference, sistem, hero, skupna SVG grafika, arhitektura GSAP, valovi, domača zgodba, podstrani, responsive pregled in dokumentacija. Načrt v EDITORIAL_REDESIGN_PLAN.md; izvedba/testi v EDITORIAL_REDESIGN.md. Ta zahteva nadomešča starejšo kompozicijo in ožjo paleto, ohranja vse poti/vsebine, uradni logotip, barvno ekipo, fiksne števce in prepoved screenshotov. Nova pravila v AGENTS.md.

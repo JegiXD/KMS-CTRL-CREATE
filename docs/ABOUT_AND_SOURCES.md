@@ -50,3 +50,16 @@ AI: Codex je pregledal uradne vire in slike, povzel vsebino, uredil podatke, Rea
 
 ## Barvni portreti — najnovejše navodilo (4. 11. 2026)
 Na uporabnikovo zahtevo portreti ekipe nimajo več CSS filtra grayscale. Trije obstoječi JPEG/WebP portreti se prikazujejo v izvornih barvah, brez retuširanja, ponovnega izvoza ali spremembe bajtov. Inicialke ostanejo za osebi brez portreta. Starejši zapisi zgoraj opisujejo tedanji sivinski prikaz. Slikovni predogledi so na uporabnikovo zahtevo izbrisani; novih ne ustvarjamo.
+
+## Dovoljenje — posodobitev 4. 11. 2026
+Uporabnik je v pogovoru potrdil dovoljenje KMŠ za uporabo slik z njihovih spletnih strani. Ta uporabnikova potrditev nadomesti starejši odprti status dovoljenja; ne izmišljamo pisne licence ali imen fotografov. [Evidenca in obseg uvoza](PHOTO_IMPORT.md). Barvni portreti ostajajo nespremenjeni.
+
+## Ponovni pregled ob editorial prenovi — 4. 11. 2026
+
+Na https://www.klub-kms.si/o-nas/ so ponovno primerjana imena vseh petih članov Upravnega odbora, treh članov Nadzorne komisije in treh članov Častnega razsodišča ter vodij področij. Ujemajo se z obstoječimi podatki; datum v about.ts je posodobljen. Novi editorial prikaz ne spreminja imen/funkcij. Trije portreti ostanejo barvni, dve inicialki ostaneta brez izmišljene fotografije. Misija je dopolnjena z obstoječo fotografijo dobrodelnosti, vir iz kmsImages/kmsPhotos.
+
+## Pregled fotografij in profilov — 4. 11. 2026
+
+Najnovejši pregled uradnega HTML potrjuje šest portretov: Jan Ozvaldič, Doroteja Plohl, Gabriela Brodnjak, Enej Polanec, Eva Polič in Zala Gluk. Zadnji trije so dodani ob vodjih področij; vseh pet vodij ima manjši barvni portret iz enotnega kmsPeopleImages kataloga. Ekipa ima manjše fotografije.
+
+Urbanova uradno povezana slika Rango_crop.jpg je zdaj vključena kot **izrecno označena profilna ilustracija**, nikoli kot osebni portret; dodana je njegova uradna e-pošta. Javni media search ni našel potrjene osebne fotografije. Jan Kolbič ohrani inicialke. Preostalim nepreverjenim osebam fotografij ne pripisujemo. [Celoten pregled, viri in odprte potrditve](PHOTOGRAPHY_AUDIT.md).

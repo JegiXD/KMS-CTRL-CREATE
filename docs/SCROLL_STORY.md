@@ -59,3 +59,15 @@ Namizni pin se začne pri spodnjem robu headerja, višina scene pa je `100svh - 
 Preverjanje v produkcijskem Chromu: vseh osem strani pri 390×844, 768×1024, 1440×1000 in 700×360 (32 kombinacij), header na začetku/sredi/koncu strani, nad vsebino in brez prelivanja. Sidra so pod headerjem, meni zapre navigacija, zadnji CTA je dosegljiv tudi na nizkem zaslonu. Po prilagoditvi pina dodatno preverjeni začetek/sredina/konec scene pri 1440×1000, 768×1024 in 1024×601: vsa scena in razkriti naslov sta pod headerjem. Reduced motion in neposredni `/o-nas#organi` preverjena pri 700×360. Typecheck in build uspešna; brez napak v konzoli pri teh preizkusih. Gre za emulacijo, brez fizičnih naprav in drugih brskalnikov.
 
 AI: Codex je uredil sticky CSS, odmike in prostor za pin, označil native scroll menija ter izvedel preverjanja s chrome-devtools-cli in dokumentacijo. Copilot ni bil uporabljen.
+
+## Veljavna izvedba po celoviti editorial prenovi — 4. 11. 2026
+
+Stara ločena scena SKUPAJ/bele zavese je zamenjana s skupnim WaveGallery sistemom. ScrollStory.tsx zdaj vključi glavno galerijo petih uradnih fotografij; še dve nepinned sekvenci povezujeta druge dele domače strani. SVG kubične Bézier poti se izračunajo iz kontejnerja, MotionPathPlugin jih uporabi s scrub timeline. Samo glavna galerija ima pin, pri najmanj 1024 px širine in 680 px višine; začetna višina headerja je izmerjena. Starejši pragi/opisi zgoraj so zgodovina.
+
+useGsapContext upravlja lokalni kontekst, media poizvedbe, refresh po slikah/pisavah in cleanup. Mobilni odmik in rotacija sta manjša, nad fotografijami je rezerviran naslovni pas. Pri reduced motion so slike statične v avtomatsko visoki mreži, brez pina/Lenis. Lenis in sidra ohranijo obstoječe obnašanje. Podrobna arhitektura, scroll vzorci in dejanski preizkusi so v [EDITORIAL_REDESIGN.md](EDITORIAL_REDESIGN.md). Brez novih slikovnih predogledov.
+
+## Veljavna optimizacija animacij in UX — 4. 11. 2026
+
+Hero je skrajšan na izmerjenih 0,67 s, reveal na 0,45 s, števci na 0,9 s z 0,07 s zamika. CTA in glavna hero fotografija so takoj vidni. Interaktivni reveal blok ne izgine z opacity 0. Osvežitve meritev se združujejo prek refreshScheduler.
+
+Edini pin zdaj zahteva najmanj **1280 × 760 px** in ima dodatno dolžino **1,15 viewporta**, prej 2,2. Scrub 0,25/0,15 s, bolj razmaknjeni začetki fotografij in vidna zadnja fotografija preprečijo lag ter prazen zaključek. Kompaktni odri so krajši, pot in rdeča grafika ohranjeni. Lenis lerp je 0,2. Starejši pragi/časi zgoraj so zgodovinski. [Izvedba, meritve in dejanski testi](ANIMATION_UX_OPTIMIZATION.md).

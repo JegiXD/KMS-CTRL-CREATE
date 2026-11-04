@@ -1,5 +1,5 @@
 # public/assets
 
-Javne datoteke z logičnimi imeni; uporabnikov logotip in favicon sta vključena. Po koraku 09 je tu 28 abstraktnih začasnih JPG vizualov, 3 izvorni JPEG portreti s potrjenim uradnim virom in njihove 3 WebP izpeljanke. Evidenca je v `docs/ASSETS_AND_SOURCES.md`, popoln rastrski popis v `docs/ASSET_INVENTORY.json`, pregled optimizacije in odprtih dovoljenj pa v `docs/IMAGE_REVIEW.md`. Potrjen vir sam po sebi ne dokazuje dovoljenja za javno uporabo.
+Dejanske fotografije osmih projektov so v events/ (JPEG + prednostni WebP); hero in scroll zgodba ponovno uporabita tri od njih. Portreti ekipe ostanejo barvni v team/. Uporabnik je 4. 11. 2026 potrdil dovoljenje KMŠ za uporabo njihovih spletnih slik. Izvor, podpisi avtorjev, dovoljenje in meje so v docs/PHOTO_IMPORT.md ter docs/KMS_PHOTO_SELECTION.json.
 
-Tri dodatne izvirne SVG ilustracije v `decor/` so dekorativne glasbene podlage, ki jih je Codex napisal po uporabnikovi zahtevi. Ne predstavljajo KMŠ fotografij in niso del rastrskega popisa. Izvor: `decor/README.md` in `docs/ASSETS_AND_SOURCES.md`.
+20 abstraktnih preostalih vizualov v hero/gallery in dveh starih team datotekah je neuporabljenih. Popoln javni rastrski popis (46 datotek) je v docs/ASSET_INVENTORY.json. Surovi prenosi ostanejo v korenskem KMS-Foto-Paket in niso javno streženi. SVG dekoracije imajo ločeno evidenco. Screenshotov/predogledov ne ustvarjamo.

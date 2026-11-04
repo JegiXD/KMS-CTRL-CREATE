@@ -1,31 +1,27 @@
 # NAVODILA ZA CODEX / AGENTE
 
-Ti si izkušen React/TypeScript razvijalec in oblikovalec. Projekt je namenjen izzivu CTRL+CREATE za Klub mariborskih študentov. Delo izvajaj **postopoma** in brez izmišljanja podatkov.
+Projekt je obstoječ React/TypeScript/Vite prototip za KMŠ CTRL+CREATE. Spremembe izvajaj v njem, postopoma, brez izmišljanja podatkov. Veljavna je **celovita experimental editorial prenova, naročena 4. 11. 2026**, ki nadomešča prejšnja navodila o monokromatski smeri, triptihu in ožji paleti.
 
-1. Začni z `README.md`, `docs/CODEX_STEPS.md` in `docs/CONTENT_CHECKLIST.md`.
-2. Ohrani delujočo aplikacijo, mobilno odzivnost in povezave. Vsak pomemben korak testiraj z `npm run typecheck` in `npm run build`.
-3. Veljavna paleta je RED / WHITE: rdeča `#E32636`, bela `#FFFFFF`, svetlo rožnata `#FFF0F2`, temno besedilo `#181818`. Brez črnih UI ozadij, oranžne, rumene ali naključnih poudarkov; podrobnosti v `docs/BRAND_COLORS.md`.
-4. Vizualni koncept: močan editorial/festival stil, fotografski triptih v hero sekciji, široki naslovi, črno-bela fotografija, mehki prehodi. Referenčni screenshot je navdih, ne vir za kopiranje.
-5. GSAP ScrollTrigger: odvisnost od scrolla, povezava med sekcijami, diskretni fade in parallax, brez preveč efektov. Upoštevaj zmanjšano gibanje, mobilno zmogljivost, čiščenje `ScrollTrigger` ob unmount.
-6. Pri dejanskih fotografijah uporabljaj `public/assets/` in logična imena iz `docs/ASSETS_AND_SOURCES.md`. Ne izmišljaj datotek; `SmartImage` pokaže fallback.
-7. Uporabnikov logotip je že vključen: `public/assets/branding/kms-logo-header.png`, izvirnik `kms-logo-original.png`, favicon `public/favicon.png`. Ne uporabljaj starega `logo-placeholder.svg`.
-8. Ne predstavljaj demo form kot delujoče storitve. Newsletter integriraj šele po pridobitvi endpointa, soglasja in politike zasebnosti.
-9. Uradni obrazec za včlanitev: https://studentski-klubi.si/public-forms/jui1g3swbxz. Mora ostati viden in delujoč.
-10. Podatke ekipe/organov in uradnih ur preveri, ker lahko zastarajo. Vir preverjanja dokumentiraj.
-11. Na koncu posodobi `README.md`, `docs/CHANGELOG.md`, `docs/SUBMISSION.md` in obrazloži uporabljen AI.
-12. Nikoli ne spreminjaj obsega, ki krši zahteve PDF briefa.
+1. Najprej preberi `README.md`, `docs/CODEX_STEPS.md`, `docs/CONTENT_CHECKLIST.md`, `docs/EDITORIAL_REDESIGN.md` in navodila v relevantnih podmapah.
+2. Ohrani osem poti, 404, preverjene vsebine, filtriranje, članstvo in kontakt. Ne ustvarjaj nove aplikacije. Ne spreminjaj obsega, ki krši brief; PDF ni priložen, kontrolni seznam ni neodvisno preverjen PDF.
+3. Smer: svetla eksperimentalna digitalna revija / mladinska kultura. Anton za velike naslove, DM Sans za branje, Space Grotesk za imena in informacijsko hierarhijo. Asimetrične fotografske kompozicije, izvirni doodli in povezane poteze; brez generičnih mrež enakih zaobljenih kartic. Referenca je filozofija, ne vir za kopiranje fotografij ali kompozicije.
+4. Veljavni tokeni so v `src/editorial.css`, naloženem za `src/styles.css`. Primarna `#E32636`, bela, globoka rdeča `#B91F2D`, svetli `#FFEAED`, `#FFF4F5`, `#FFFAF8`, besedilo `#171717`. `#172D4D` je dovoljen samo kot omejen poudarek/sticker, ne veliko ozadje. Brez črnih UI ozadij, oranžne ali rumene. Podrobnosti v `docs/BRAND_COLORS.md`.
+5. Komponente za novo editorial vsebino so v `src/components/editorial/`; fotografije vključuj z `EditorialPhoto`/`SmartImage`, ozadja z izvirnim SVG. Dekoracije imajo `aria-hidden` in `pointer-events: none`. Ne postavljaj dekoracij čez nujne kontrole.
+6. Animacijske gradnike ohrani v `src/animations/`, kontekst v `useGsapContext`. GSAP s ScrollTrigger/MotionPathPlugin in Lenis sta že nameščena. Brez dodatnih knjižnic za isto nalogo.
+7. Fotografski val uporablja odzivno SVG Bézier geometrijo in `scrub`. Največ en pin v glavni galeriji: najmanj 1280 px širine in 760 px višine; začetna višina headerja je izmerjena. Manjši zasloni brez pina in z manjšo rotacijo/bočnim odmikom. Ohraniti mora gibanje levo–desno–levo, ne naključnih koordinat.
+8. GSAP mora imeti lokalni kontekst, `matchMedia`, `invalidateOnRefresh` in cleanup pri unmount/media spremembi. Upoštevaj reduced motion tudi med obiskom, React Strict Mode in nalaganje pisav/slik. Prednost transform/opacity; ne dodajaj dragih scroll React posodobitev.
+9. Header ostane vedno viden. Mobilni meni ima velik klikljiv cilj, pravilen `aria-expanded`, Escape, tab vrstni red in zapiranje po navigaciji. Ohrani skip link in vidni fokus.
+10. `prefers-reduced-motion` pomeni statično fotografsko mrežo, brez pina, reveal skrivanja, CSS animacij in Lenis glajenja. Vse bistvene informacije ostanejo dostopne brez hoverja in gibanja.
+11. Slike so lokalne v `public/assets/`. `src/data/kmsPhotos.ts` je katalog datotek/alt/mer/virov, `kmsImages.ts` uredniški manifest; `kmsPeopleImages.ts` povezuje potrjena imena s portreti, `kmsPhotoAdditions.ts` vsebuje pregledane dodatke. Urbanova uradna slika je označena ilustracija, ne osebni portret. `KMS-Foto-Paket/` vsebuje izvirnike in ostane zunaj `dist`. Ne briši izvirnikov; uporabljaj optimizirani WebP s JPEG rezervo in stabilnim okvirjem.
+12. Uporabnik je 4. 11. 2026 potrdil dovoljenje KMŠ za uporabo fotografij z njihovih strani. Ne sprašuj znova za že odobreno uporabo. Evidenca v `docs/PHOTO_IMPORT.md` in `KMS_PHOTO_SELECTION.json`; ohrani podpise, ne izmišljaj avtorjev ali identitet. Nove vire dokumentiraj.
+13. Portreti ekipe ostanejo **barvni**. Projektne fotografije so v osnovi sivinske z barvnim hoverjem. Uporabnikov logo ostaja `public/assets/branding/kms-logo-header.png`, izvirnik `kms-logo-original.png`, favicon `public/favicon.png`. Brez `logo-placeholder.svg`.
+14. Neposredno pod hero ostanejo fiksni uporabnikovi števci **45 / 753 / 29** z natančnimi oznakami, animacijo do cilja in statično dostopno vrednostjo. Niso podatki v živo.
+15. Članstvo vedno vodi na https://studentski-klubi.si/public-forms/jui1g3swbxz. Kontakt je pošten `mailto` osnutek; newsletter ostane jasno neaktivna demonstracija z disabled kontrolami, dokler ni potrjen endpoint, privolitev in politika zasebnosti. Brez lažnih uspešnih prijav.
+16. Imena/role organov, uradne ure, datume in novice preveri po uradnih virih in dokumentiraj datum. Ne izmišljaj terminov, cen, lokacij ali članov. Projektni pregled in arhivske novice ne predstavljajo aktualnega koledarja.
+17. Preveri 375, 768, 1024 in 1440 px; brez vodoravnega overflowa, prekrivanja besedila s fotografijami ali odrezanih CTA. Uporabljaj `clamp()`, berljive odstavke, semantično hierarhijo in kontrast. Imena članov so pomembnejša od dekorativnih efektov.
+18. **Ne ustvarjaj, zajemaj ali shranjuj screenshotov ali slikovnih predogledov.** `docs/previews` je odstranjena. Brskalnik uporabljaj za DOM, tipkovnico, geometrijo, konzolo in interakcije brez slikovnega zajema.
+19. Po pomembnih spremembah zaženi `npm run typecheck` in `npm run build`. Skript `lint`/`test` ni. Izvedi smiselne brskalniške preizkuse gibanja, cleanup, reduced motion, filtrov, menija in slik. Ne trdi, da je test opravljen, če ni izveden.
+20. Ob koncu uskladi `README.md`, `docs/CHANGELOG.md`, `docs/SUBMISSION.md`, pomembne vire in resnično AI izjavo. Zgodovino palete/prejšnjih prenov ohranja CHANGELOG; zgodovinski pin pragi in prikazi niso veljavna navodila.
 
-
-## Posodobitev: KMŠ RED / WHITE (03. 11. 2026)
-Ohrani obstoječo strukturo, vse strani in scroll animacije. Nova paleta: primarna rdeča `#E32636`, bela `#FFFFFF`, sekundarna svetlo rožnata `#FFF0F2` in temna barva besedila `#181818`. Priložen uporabnikov logotip je v `public/assets/branding/kms-logo-original.png`, za navigacijo obrezan v `kms-logo-header.png`, favicon pa je `public/favicon.png`. Ne vračaj črnega ozadja in ne uporabljaj starega placeholder logotipa.
-
-## Zgodovinsko: korak 02 — monokromatska smer (3. 11. 2026)
-Uporabnik je po RED / WHITE posodobitvi izrecno naročil črno-belo-siv oblikovni sistem. Takrat je ta zahteva nadomestila zgornjo rdeče-belo paleto in prepoved črnega ozadja; ponovno navodilo RED / WHITE spodaj jo sedaj nadomešča. Veljavni sistem je opisan v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Uporabnikov logotip, favicon, struktura, poti in scroll animacije ostajajo ohranjeni.
-
-## Veljavno navodilo — KMŠ RED / WHITE (ponovno potrjeno 4. 11. 2026)
-Najnovejše uporabnikovo navodilo ponovno določa primarno rdečo `#E32636`, belo `#FFFFFF`, sekundarno svetlo rožnato `#FFF0F2` in temno besedilo `#181818`. Nadomešča monokromatsko zahtevo koraka 02. Ne vračaj črnih UI ozadij; ohrani vse strani, strukturo, scroll animacije, uporabnikov `kms-logo-header.png` in `public/favicon.png`. Veljavni sistem je v `docs/BRAND_COLORS.md` (iz mape docs: `BRAND_COLORS.md`). Zgodovinski zapisi in predogledi pred to potrditvijo opisujejo prejšnjo paleto.
-
-## Najnovejše uporabnikove dopolnitve (4. 11. 2026)
-- Ne ustvarjaj, zajemaj ali shranjuj slikovnih predogledov/screenshotov. Mapa docs/previews je na uporabnikovo zahtevo odstranjena. Brskalnik uporabljaj za preverjanje brez posnetkov.
-- Portreti članov ekipe se prikazujejo barvno; drugih fotografskih slogov to ne spreminja.
-- Na domači strani pod hero so fiksni uporabnikovi števci 45 / 753 / 29 z animacijo do cilja; ne predstavljaj jih kot podatke v živo.
+## Veljavna optimizacija animacij
+Hero največ približno 0,7 s, reveal 0,45 s; interaktivne vsebine ne skrivaj med animacijo. Ohrani krajši fotografski val, en pin samo na velikem/visokem namizju in dodatno razdaljo 1,15 viewporta. Refresh združuj prek refreshScheduler; podrobnosti v docs/ANIMATION_UX_OPTIMIZATION.md. Starejše dokumentirane vrednosti so zgodovina.

@@ -1,3 +1,4 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { Reveal } from '../components/Reveal';
@@ -7,7 +8,7 @@ import { aboutContentCheckedAt, aboutSource, clubBodies, sectionLeads, team } fr
 export default function About() {
   return (
     <>
-      <section className="page-hero about-hero" aria-labelledby="about-title">
+      <section className="page-hero has-photo about-hero" aria-labelledby="about-title">
         <p className="eyebrow">01 / O NAS</p>
         <h1 id="about-title">LJUDJE.<br /><em>IDEJE. KMŠ.</em></h1>
         <p className="lead">Skupnost mladih, ki povezuje študentski Maribor in odpira prostor za znanje, ustvarjanje in skupna doživetja.</p>
@@ -16,8 +17,10 @@ export default function About() {
           <a className="text-link" href="#ekipa">EKIPA ↓</a>
           <a className="text-link" href="#organi">ORGANI DRUŠTVA ↓</a>
         </nav>
+        <EditorialPhoto image="cantusTogether" className="page-hero-photo" />
       </section>
       <section id="poslanstvo" className="section about-mission" aria-labelledby="mission-title">
+        <EditorialPhoto image="dobrodelnost" />
         <Reveal>
           <p className="eyebrow">POVEZUJE NAS ISTI NAMEN</p>
           <h2 id="mission-title">VEČ PROSTORA<br /><em>ZA MLADE.</em></h2>
@@ -39,16 +42,21 @@ export default function About() {
         <div className="team-grid">
           {team.map(person => (
             <article className="team-card about-person" key={person.id} aria-labelledby={`person-${person.id}`}>
-              {person.photo ? <SmartImage src={person.photo} webpSrc={person.photoWebp} alt={`Portret: ${person.name}`} width={300} height={300} /> : (
+              {person.photo ? <SmartImage src={person.photo} webpSrc={person.photoWebp} alt={person.photoKind === 'illustration' ? `Uradna profilna ilustracija: ${person.name} (ni portret)` : `Portret: ${person.name}`} width={300} height={300} /> : (
                 <div className="person-initials" aria-hidden="true"><span>{person.name.split(' ').map(part => part[0]).join('')}</span><small>KMŠ / EKIPA</small></div>
               )}
-              <div className="person-details"><h3 id={`person-${person.id}`}>{person.name}</h3><p>{person.role}</p>{person.additionalRole && <p className="person-additional">{person.additionalRole}</p>}</div>
+              <div className="person-details"><h3 id={`person-${person.id}`}>{person.name}</h3><p>{person.role}</p>{person.photoKind === 'illustration' && <p className="person-photo-note">Profilna ilustracija z uradne strani KMŠ</p>}{person.email && <a className="person-email" href={`mailto:${person.email}`}>{person.email}</a>}{person.additionalRole && <p className="person-additional">{person.additionalRole}</p>}</div>
             </article>
           ))}
         </div>
         <div className="about-sections" aria-labelledby="sections-title">
           <h3 id="sections-title">Področja in sekcije</h3>
-          <dl>{sectionLeads.map(lead => <div key={lead.area}><dt>{lead.area}</dt><dd>{lead.name}</dd></div>)}</dl>
+          <div className="section-leads">{sectionLeads.map(lead => (
+            <article className="section-lead" key={lead.area}>
+              <SmartImage src={lead.image.src} webpSrc={lead.image.webpSrc} alt={`Portret: ${lead.name}`} width={300} height={300} />
+              <div><h4>{lead.name}</h4><p>{lead.area}</p></div>
+            </article>
+          ))}</div>
         </div>
       </section>
       <section id="organi" className="section about-bodies" aria-labelledby="bodies-title">

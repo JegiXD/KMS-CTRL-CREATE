@@ -1,5 +1,3 @@
-# public/assets/events
+# Projektne fotografije KMŠ
 
-Osem začasnih abstraktnih JPG vizualov (960 × 1100 px), ne uradne fotografije projektov. Poti uporabljata domača stran in `/dogodki`; alt opisi označujejo začasne vizuale. Izvor oziroma zgodovina nastanka in dovoljenja niso dokumentirani. Odobrene fotografije in avtorje zabeleži v `docs/ASSETS_AND_SOURCES.md`, nato preveri izreze in optimizacijo.
-
-Glej glavni `README.md` in `AGENTS.md`.
+Osem pregledanih fotografij z uradnih projektnih strani, z JPEG/WebP parom, največ 1280 px. Po uporabnikovi potrditvi dovoljenja KMŠ so nadomestile začasne abstraktne vizuale. Konkreten vir, podpis/avtor in originalni hash: docs/KMS_PHOTO_SELECTION.json. Opis obsega in priprave: docs/PHOTO_IMPORT.md. Ponovni izvoz: python3 scripts/prepare-kms-photos.py iz korena projekta (Pillow).

@@ -1,11 +1,11 @@
 # URADNI VIRI, LOGOTIP IN FOTOGRAFIJE
 
-## Trenutno stanje po koraku 09 in dekorativnih dopolnitvah (4. 11. 2026)
-28 abstraktnih začasnih JPG vizualov, 3 lokalni JPEG portreti z uradne strani KMŠ ter 3 optimizirane WebP izpeljanke. Navigacija in favicon uporabljata uporabnikovi PNG datoteki; placeholder ni uporabljen. Popoln popis 37 rastrskih datotek z dimenzijami, bajti, SHA-256, viri in statusom dovoljenja je v [ASSET_INVENTORY.json](ASSET_INVENTORY.json).
+## Trenutno stanje po uvozu foto paketa (4. 11. 2026)
+Hero, povezana zgodba in vseh osem projektov uporabljajo dejanske fotografije z uradnih strani KMŠ, z lokalnim WebP/JPEG in navedbami virov. Uporabnik je v pogovoru potrdil dovoljenje KMŠ za uporabo fotografij. To je evidentirana uporabnikova potrditev; avtorjev, ki niso objavljeni, ne izmišljamo.
 
-Izvor treh portretov je ponovno potrjen z neposredno primerjavo bajtov na uradnem viru, ne pa njihova licenca. Pregled imen, izrezov, alt opisov, logotipa in optimizacije je v [IMAGE_REVIEW.md](IMAGE_REVIEW.md). Avtorstvo in dovoljenje za javno objavo ostajata nedokumentirana tudi za izpeljanke in logotip. Za dve osebi uporabljamo inicialke. Zgodovinska stanja spodaj ostajajo za sledljivost.
+Prenesenih je 150 datotek iz paketa in pet dodatnih izvirnikov. Arhiv vključuje tudi plakate, logotipe in velikostne različice; uredniško je pregledanih in v aplikacijo vključenih osem projektnih fotografij. Izvirniki so v korenskem KMS-Foto-Paket, javni izvozi v public/assets/events. Portreti in logotip ostanejo ohranjeni, 20 starih abstraktnih vizualov je neuporabljenih. Popis vključuje 46 javnih rastrskih datotek, ločeno od surovega arhiva in SVG dekoracij.
 
-Dodane so tudi tri izvirne vektorske dekoracije v `public/assets/decor/`, ločeno od rastrskega popisa. Njihov izvor in uporaba sta navedena spodaj.
+[Uvoz, dovoljenje, avtorji in preverjanja](PHOTO_IMPORT.md), [izbor in neposredni URL-ji](KMS_PHOTO_SELECTION.json), [javni popis](ASSET_INVENTORY.json). Spodnji zapisi so zgodovinski in ne pomenijo, da so zdaj vključene projektne fotografije še začasne.
 
 ## Preverjene javne povezave (3. 11. 2026)
 - Uradna stran: https://www.klub-kms.si/
@@ -82,3 +82,16 @@ Najnovejše uporabnikovo navodilo ponovno določa primarno rdečo `#E32636`, bel
 Brez zunanjega slikovnega vira, prevzetih ikon, prepoznavnih izvajalcev ali referenčnih fotografij. To niso uradne KMŠ fotografije ali novi uradni simboli znamke. Ni dovoljenj tretjih oseb, na katera bi se opirali; ločena licenca projekta ni določena. Odkrito gre za AI pomoč pri pisanju vektorske kode, brez generiranja ali retuširanja portretov/fotografij. Evidenca rastrskih slik in njihova odprta dovoljenja ostajajo nespremenjeni.
 
 Motivi so lokalna dekorativna CSS ozadja brez semantičnega alt opisa, animacij in sprejemanja klikov. [Prikaz, kontrast in preverjanja](BRAND_COLORS.md#dekorativni-glasbeni-motivi--4-11-2026).
+
+## Geometrijska podlaga rdečih površin
+`public/assets/decor/facet-pattern.svg` je izvirna ponovljiva SVG geometrija, ki jo je Codex napisal ob uporabnikovi slikovni referenci. Referenčna slika z vodnim žigom je bila uporabljena samo kot navdih, ni kopirana ali vključena v aplikacijo. Po uporabnikovi/Copilot prenovi je vzorec v tem pregledu umirjen na #7A0C18, opacity 0,32, debelino 1,6; podlaga ostane #D92333. Vzorec je dekorativen, statičen, brez zunanjih referenc; ni KMŠ fotografija ali uradni simbol. Licenca projekta ni posebej določena.
+
+## Celovita editorial prenova — 4. 11. 2026
+
+Novi `src/data/kmsImages.ts` je semantični manifest, ki nadgradi `kmsPhotos.ts` (poti, mere, alt, kredit in izvor). Ne ustvarja novih fotografij ali dovoljenj. Osem pregledanih WebP/JPEG fotografij je ponovno uporabljenih v heru, podstraneh, treh valovih in pozivih. `EditorialPhoto` navaja izvor; valovi imajo še vedno dosegljiv seznam kreditov. Izvirniki ostajajo nespremenjeni zunaj public/dist. Glavna hero slika ima eager/high prioriteto, druge lazy in rezervirano razmerje stranic.
+
+`Graphics.tsx` in `ScrollConnector.tsx` vsebujeta izvirno SVG kodo, ki jo je Codex napisal za to prenovo; ni prevzeta iz referenčne strani. Priložena referenca je služila analizi tipografije/plastenja, ne izvoru fotografij, znamke ali ilustracij. Anton se pridruži obstoječima DM Sans/Space Grotesk prek Google Fonts s sistemskimi rezervami. [Celovita izvedba, datoteke in testi](EDITORIAL_REDESIGN.md).
+
+## Uravnoteženje fotografij in oseb — 4. 11. 2026
+
+Dodane so štiri različne fotografije iz obstoječega paketa v community/gallery, trije potrjeni portreti vodij in izrecno označena Urbanova uradna profilna ilustracija. Vsi originali ostanejo ohranjeni. Novi manifesta: kmsPhotoAdditions.ts in kmsPeopleImages.ts, vključena v obstoječi kmsImages/about. Javni popis: 62 rastrskih datotek. [Pregled velikosti, uporabe, identitet in ročnih potrditev](PHOTOGRAPHY_AUDIT.md), [natančni izvorni URL-ji in SHA-256](PHOTO_REBALANCE_ASSETS.json). Uporabnikovo dovoljenje ostaja zabeleženo; posebne licence Urbanove risane ilustracije ne domnevamo.

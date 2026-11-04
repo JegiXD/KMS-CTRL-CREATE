@@ -64,3 +64,21 @@ Endpointi, ključi, pošiljanje potrditvenih sporočil, pravna besedila in stori
 - Fizične naprave, drugi brskalniki, dejanski mail odjemalec, dostava in pošiljanje newsletterja niso preverjeni.
 
 AI: Codex je pregledal uradne strani in dokumentacijo ponudnika, pripravil podatke, React/CSS izvedbo, izoliran preizkus mailto, brskalniška preverjanja s chrome-devtools-cli ter načrt integracije in dokumentacijo. Copilot ni bil uporabljen.
+
+## Editorial prenova in ponovni pregled — 4. 11. 2026
+
+Naslov, info@klub-kms.si, telefon 040 985 088 (Urban Kavkler) ter ure ponedeljek–četrtek 7–14 / petek 6–12 so ponovno primerjani z javnima https://www.klub-kms.si/ in https://www.klub-kms.si/o-nas/. Datum v contact.ts je posodobljen, podatki ohranjeni. Družbene povezave ostajajo iz predhodnega preverjenega kataloga; prijava v račune ali pošiljanje sporočil ni bilo izvedeno.
+
+Kontakt in Newsletter imata skupni editorial sistem in lokalni fotografski uvod. Obrazec kontakta še vedno samo pripravi mailto; newsletter kontrole so onemogočene, brez API, shranjevanja ali lažnih potrditev. Preverjeni so označena required polja, neveljavnost praznega kontakta ter disabled stanje e-novic. Nobeno sporočilo ali naslov ni bil poslan. Predlog realne integracije zgoraj ostaja neizveden.
+
+## Lokacija Pisarna — 4. 11. 2026
+
+Na `/kontakt#lokacija` je dodana samostojna `LocationSection` s scoped CSS. Zemljevid uporablja interaktivni Google Maps iframe za »Pisarna, Vetrinjska ulica 30, 2000 Maribor, Slovenija«, lazy loading, rezervirano višino in opisni title. »Prikaži pot« odpre Google Maps directions v novem zavihku z URL-kodiranim ciljem in `api=1`; izhodišče ni vsiljeno. [Uradna dokumentacija Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started). Projekt ne potrebuje nove odvisnosti ali lastnega API ključa za ta javni embed.
+
+Ure so ponovno preverjene na [uradni strani KMŠ](https://www.klub-kms.si/): ponedeljek–četrtek 7.00–14.00, petek 6.00–12.00. Sekcija jih izrecno označuje kot **uradne ure KMŠ**, ne kot odpiralni čas lokala Pisarna. Uporabljeni so isti centralni podatki kot pri kontaktu. Lokacijo Pisarna na tem naslovu določa uporabnikovo naročilo.
+
+GSAP uporabi obstoječa `revealEditorial` in `useGsapContext`: diskreten fade/pomik ob prihodu posameznega dela v pogled, brez pina; cleanup in sprotni reduced motion ostaneta iz skupnega sistema. Komponenta ne spreminja drugih strani ali newsletterja.
+
+Preverjeno: typecheck/build uspešna; osem Chrome kombinacij 375/768/1024/1440 px z obema nastavitvama gibanja, brez prelivanja; normalno gibanje opacity 0→1 in y 34→0, pri reduce takoj vidno brez transformacije. Zemljevid se naloži z odgovorom HTTP 200 po Googlovem redirectu; accessibility tree vsebuje iframe in regijo »Zemljevid«. Preverjeni title, lazy loading, naslov, ure in pravilno kodiran directions URL. Konzola brez error sporočil pri zaključnem pregledu. Brez screenshotov. Fizične naprave, načrtovanje konkretne poti in drugi brskalniki niso preverjeni. Delovanje zemljevida je odvisno od Google Maps in omrežja; naslov in gumb ostaneta na strani tudi brez naloženega zemljevida.
+
+AI: Codex je dodal komponento/CSS, vključitev na Kontakt, preveril primarne vire ter izvedel npm in Chrome DOM preverjanja prek obstoječe veščine chrome-devtools-cli. Brez sprememb fotografij ali dodatnih knjižnic.

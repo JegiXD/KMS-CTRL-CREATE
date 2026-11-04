@@ -1,5 +1,5 @@
 // Reviewed public sources and newsletter proposal: docs/CONTACT_AND_NEWSLETTER.md.
-export const contactCheckedAt = '2026-11-03';
+export const contactCheckedAt = '2026-11-04';
 export const contactSource = 'https://www.klub-kms.si/';
 export const clubContact = {
   address: 'Vetrinjska ulica 30',

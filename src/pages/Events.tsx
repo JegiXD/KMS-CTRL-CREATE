@@ -1,3 +1,4 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
 import { useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { SmartImage } from '../components/SmartImage';
@@ -12,11 +13,12 @@ export default function Events() {
 
   return (
     <>
-      <section className="page-hero events-hero" aria-labelledby="events-title">
+      <section className="page-hero has-photo events-hero" aria-labelledby="events-title">
         <p className="eyebrow">02 / DOGODKI & PROJEKTI</p>
         <h1 id="events-title">NAJDI SVOJE<br /><em>DOGAJANJE.</em></h1>
         <p className="lead">Od glasbe in ustvarjanja do humorja in dobrodelnosti. Spoznaj projekte, s katerimi KMŠ povezuje študentski Maribor.</p>
         <a className="text-link" href="#projects">RAZIŠČI PROJEKTE ↓</a>
+        <EditorialPhoto image="ftrgatevCrowd" className="page-hero-photo" />
       </section>
       <section id="projects" className="section projects-section" aria-labelledby="projects-title">
         <div className="projects-heading">
@@ -48,12 +50,13 @@ export default function Events() {
           <p role="status" aria-live="polite" aria-atomic="true">{activeLabel} · Prikazano {visibleEvents.length} od {events.length}</p>
           {category !== 'all' && <button type="button" className="text-link" onClick={() => { setCategory('all'); allFilter.current?.focus(); }}>POKAŽI VSE PROJEKTE ↗</button>}
         </div>
-        <p className="helper projects-image-note">Slike so začasni vizuali, ne fotografije izvedb.</p>
+        <p className="helper projects-image-note">Fotografije so iz uradnih predstavitev projektov KMŠ in prikazujejo pretekle izvedbe.</p>
         <div className="events-grid projects-grid" id="project-results">
           {visibleEvents.map(event => (
             <article className="event-card project-card" key={event.slug} aria-labelledby={`project-${event.slug}`}>
-              <SmartImage src={event.photo} alt={`Začasni vizual za projekt ${event.title}`} />
+              <SmartImage src={event.photo} webpSrc={event.photoWebp} alt={event.photoAlt} />
               <div className="project-card-content">
+                <p className="photo-credit">Foto / vir: <a href={event.photoSource} target="_blank" rel="noopener noreferrer">{event.photoCredit} ↗</a></p>
                 <div className="event-meta"><span>{event.tag}</span></div>
                 <h3 id={`project-${event.slug}`}>{event.title}</h3>
                 <p>{event.description}</p>

@@ -1,3 +1,4 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
 import { Link } from 'react-router-dom';
 import { MembershipLink } from '../components/MembershipLink';
 import { membershipBenefits, membershipInfoUrl, participationCheckedAt } from '../data/participation';
@@ -5,12 +6,13 @@ import { membershipBenefits, membershipInfoUrl, participationCheckedAt } from '.
 export default function Membership() {
   return (
     <>
-      <section className="page-hero participation-hero" aria-labelledby="membership-title">
+      <section className="page-hero has-photo participation-hero" aria-labelledby="membership-title">
         <p className="eyebrow">04 / ČLANSTVO</p>
         <h1 id="membership-title">TVOJE MESTO<br /><em>JE MED NAMI.</em></h1>
         <p className="lead">Za študente in dijake, ki želijo nova poznanstva, izkušnje in skupna doživetja. Postani del KMŠ.</p>
         <div className="participation-actions"><MembershipLink /><a className="text-link" href="#ugodnosti">KAJ MI PRINESE ČLANSTVO? ↓</a></div>
         <p className="helper">Odpre se uradni obrazec na studentski-klubi.si v novem zavihku.</p>
+        <EditorialPhoto image="cantusStage" className="page-hero-photo" />
       </section>
       <section id="ugodnosti" className="section membership-benefits" aria-labelledby="benefits-title">
         <p className="eyebrow">LJUDJE, ZNANJE, DOŽIVETJA</p>

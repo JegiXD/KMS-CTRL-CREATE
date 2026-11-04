@@ -61,3 +61,6 @@ Pred javno oddajo v evidenco dodaj dejansko dokazilo ali povezavo na dovoljenje,
 - Vizualno pregledani izvirniki, vse tri WebP izpeljanke, uporabnikov logo/favicon ter shranjeni mobilni in namizni predogledi. Pregled v emulaciji namiznega Chroma, brez fizičnih naprav in drugih brskalnikov; ne gre za celotno meritev zmogljivosti ali CLS.
 
 AI: Codex je pregledal lokalne slike in uradne vire, pripravil WebP izpeljanke s Pillow, spremembe React/HTML/CSS, popis, preverjanja s chrome-devtools-cli in dokumentacijo. Pri tem koraku ni generiral ali retuširal fotografij in logotipa. GitHub Copilot ni bil uporabljen.
+
+## Dovoljenje — posodobitev 4. 11. 2026
+Uporabnik je v pogovoru potrdil dovoljenje KMŠ za uporabo slik z njihovih spletnih strani. Ta uporabnikova potrditev nadomesti starejši odprti status dovoljenja; ne izmišljamo pisne licence ali imen fotografov. [Evidenca in obseg uvoza](PHOTO_IMPORT.md). Barvni portreti ostajajo nespremenjeni.

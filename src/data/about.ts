@@ -1,13 +1,14 @@
+import { kmsPeopleImages } from './kmsPeopleImages';
 // Reviewed against the live official page. Evidence: docs/ABOUT_AND_SOURCES.md.
 export const aboutSource = 'https://www.klub-kms.si/o-nas/';
-export const aboutContentCheckedAt = '2026-11-03';
+export const aboutContentCheckedAt = '2026-11-04';
 
-export type TeamMember = { id: string; name: string; role: string; photo?: string; photoWebp?: string; additionalRole?: string };
+export type TeamMember = { id: string; name: string; role: string; photo?: string; photoWebp?: string; additionalRole?: string; email?: string; photoKind?: 'portrait' | 'illustration' };
 export const team: TeamMember[] = [
-  { id: 'urban-kavkler', name: 'Urban Kavkler', role: 'Predsednik društva' },
-  { id: 'jan-ozvaldic', name: 'Jan Ozvaldič', role: 'Podpredsednik društva', photo: '/assets/team/jan-ozvaldic.jpg', photoWebp: '/assets/team/jan-ozvaldic.webp', additionalRole: 'Svetnik Sveta ŠOLS in Zveze ŠKIS' },
-  { id: 'doroteja-plohl', name: 'Doroteja Plohl', role: 'Blagajničarka', photo: '/assets/team/doroteja-plohl.jpg', photoWebp: '/assets/team/doroteja-plohl.webp' },
-  { id: 'gabriela-brodnjak', name: 'Gabriela Brodnjak', role: 'Članica Upravnega odbora', photo: '/assets/team/gabriela-brodnjak.jpg', photoWebp: '/assets/team/gabriela-brodnjak.webp' },
+  { id: 'urban-kavkler', name: 'Urban Kavkler', role: 'Predsednik društva', photo: kmsPeopleImages['urban-kavkler'].src, photoWebp: kmsPeopleImages['urban-kavkler'].webpSrc, photoKind: 'illustration', email: 'urban.kavkler@klub-kms.si' },
+  { id: 'jan-ozvaldic', name: 'Jan Ozvaldič', role: 'Podpredsednik društva', photo: kmsPeopleImages['jan-ozvaldic'].src, photoWebp: kmsPeopleImages['jan-ozvaldic'].webpSrc, additionalRole: 'Svetnik Sveta ŠOLS in Zveze ŠKIS' },
+  { id: 'doroteja-plohl', name: 'Doroteja Plohl', role: 'Blagajničarka', photo: kmsPeopleImages['doroteja-plohl'].src, photoWebp: kmsPeopleImages['doroteja-plohl'].webpSrc },
+  { id: 'gabriela-brodnjak', name: 'Gabriela Brodnjak', role: 'Članica Upravnega odbora', photo: kmsPeopleImages['gabriela-brodnjak'].src, photoWebp: kmsPeopleImages['gabriela-brodnjak'].webpSrc },
   { id: 'jan-kolbic', name: 'Jan Kolbič', role: 'Član Upravnega odbora' },
 ];
 
@@ -31,9 +32,9 @@ export const clubBodies: ClubBody[] = [
 ];
 
 export const sectionLeads = [
-  { area: 'Marketing', name: 'Gabriela Brodnjak' },
-  { area: 'Kultura in izobraževanje', name: 'Enej Polanec' },
-  { area: 'Sociala in zdravstvo', name: 'Eva Polič' },
-  { area: 'Šport in zabava', name: 'Doroteja Plohl' },
-  { area: 'Dijaška sekcija', name: 'Zala Gluk' },
+  { area: 'Marketing', name: 'Gabriela Brodnjak', image: kmsPeopleImages['gabriela-brodnjak'] },
+  { area: 'Kultura in izobraževanje', name: 'Enej Polanec', image: kmsPeopleImages['enej-polanec'] },
+  { area: 'Sociala in zdravstvo', name: 'Eva Polič', image: kmsPeopleImages['eva-polic'] },
+  { area: 'Šport in zabava', name: 'Doroteja Plohl', image: kmsPeopleImages['doroteja-plohl'] },
+  { area: 'Dijaška sekcija', name: 'Zala Gluk', image: kmsPeopleImages['zala-gluk'] },
 ];

@@ -1,12 +1,14 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
 import { Link } from 'react-router-dom';
 import { contactSource, socials } from '../data/contact';
 
 export default function Newsletter() {
   return (
     <>
-      <section className="page-hero newsletter-hero" aria-labelledby="newsletter-title">
+      <section className="page-hero has-photo newsletter-hero" aria-labelledby="newsletter-title">
         <p className="eyebrow">07 / E-NOVICE</p><h1 id="newsletter-title">OSTANI<br /><em>NA TEKOČEM.</em></h1>
         <p className="lead">Dogodki, projekti in priložnosti KMŠ. Prijava na e-novice v tem prototipu še ni omogočena.</p>
+        <EditorialPhoto image="standup" className="page-hero-photo" />
       </section>
       <section className="section newsletter-layout" aria-labelledby="newsletter-status-title">
         <div><p className="eyebrow">STANJE PRIJAV V PROTOTIPU</p><h2 id="newsletter-status-title">PRIJAVA TUKAJ<br /><em>ŠE NI AKTIVNA.</em></h2><p id="newsletter-status" className="lead">Spodaj je samo predogled obrazca. E-poštnih naslovov ne zbiramo, pošiljamo ali shranjujemo.</p><p>Ko bo prijava omogočena, bo jasno navedeno, kdo obdeluje podatke, kako potrdiš prijavo in kako se odjaviš.</p></div>

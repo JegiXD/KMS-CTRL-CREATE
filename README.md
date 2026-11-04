@@ -1,103 +1,180 @@
-# KMŠ / CTRL+CREATE — RED / WHITE
+# KMŠ Editorial – Interaktivna spletna podoba Kluba mariborskih študentov
 
-Konceptni odziven prototip spletne strani Kluba mariborskih študentov z izrazito festivalsko tipografijo in fotografskim triptihom. Po najnovejšem uporabnikovem navodilu je ponovno veljavna paleta RED / WHITE: primarna rdeča `#E32636`, bela `#FFFFFF`, sekundarna svetlo rožnata `#FFF0F2` in temno besedilo `#181818`. Ta zahteva nadomešča monokromatsko smer koraka 02. Podrobnosti o barvah, tipografiji, razmikih in odzivnosti so v `docs/BRAND_COLORS.md`.
+Odziven, interaktiven spletni prototip za predstavitev Kluba mariborskih študentov (KMŠ). Projekt združuje uredniško zasnovo, preverjene vsebine, lokalne fotografije in scroll zgodbo ter obiskovalca usmerja do dogodkov, članstva in možnosti sodelovanja.
 
-## Hiter zagon
-1. Namesti Node.js 20 ali novejši.
-2. V terminalu: `npm install`
-3. Zaženi: `npm run dev`
-4. Odpri lokalni naslov, ki ga izpiše Vite (običajno `http://localhost:5173`).
-5. Pred oddajo: `npm run typecheck` in `npm run build`.
+| Podatek | Stanje |
+|---|---|
+| **Status** | Delujoč prototip; javna produkcijska objava ni potrjena |
+| **Avtor** | Tilen Jäger |
+| **Natečaj** | CTRL+CREATE 2026 |
+| **Živa predstavitev** | Ni potrjene javne povezave; pred oddajo dodajte URL |
+| **GitHub** | [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) — repozitorij je zaseben, potreben je dostop |
+| **Predogled** | Posnetkov zaslona v repozitoriju ni |
 
-## GitHub
-Repozitorij: [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) (zaseben; dostop zahteva dovoljenje lastnika). Glavna veja je `main`. Odvisnosti namesti z `npm install`; `node_modules`, `dist`, `.env` datoteke, lokalne IDE nastavitve in TypeScript predpomnilnik niso vključeni. GitHub repozitorij še ne pomeni javno gostujoče spletne strani.
+## O projektu
 
-Različica na GitHubu vključuje zaključene korake 01–05, skupaj z dokumentacijo virov in lokalnimi predogledi.
+Projekt je nastal kot predlog nove spletne podobe KMŠ za natečaj CTRL+CREATE. Namen prenove je obiskovalcu olajšati razumevanje delovanja kluba in odkrivanje projektov, ekipe, članstva ter načinov sodelovanja. Namesto zgolj informativnega seznama vsebin stran gradi povezano zgodbo o mladih, glasbi, ustvarjanju in skupnosti v Mariboru.
 
-## Trenutno pripravljeno
-- Pod hero je »Napovednik dogodkov« s fiksnimi uporabnikovimi vrednostmi 45 projektov v 2023, 753 članov in 29 aktivistov; ob vstopu v pogled se številke animirajo do cilja.
-- 8 navigacijskih poti: Domov, O nas, Dogodki, Novice, Članstvo, Priložnosti, Kontakt, Newsletter (dosegljiv na `/newsletter`, iz noge in s kontakta).
-- Stalno viden odziven header, kartice dogodkov, filtriranje dogodkov, seznam novic, prikaz ekipe.
-- Diskretni glasbeni SVG motivi v ozadju: kitara, harmonika in odrska oprema; brez dodatnega gibanja.
-- Gladko drsenje z Lenis, usklajeno z GSAP `ScrollTrigger`, reveal animacijami in `prefers-reduced-motion`.
-- Lokalni uporabnikov logotip v navigaciji in favicon; stari `logo-placeholder.svg` ni uporabljen. Fotografije dogodkov ostajajo začasni vizuali; trije barvni portreti ekipe imajo potrjen uradni vir.
-- Kontaktni obrazec je jasno označen mailto osnutek; newsletter je **neaktiven predogled** z onemogočenimi kontrolami, brez zbiranja podatkov.
+Izbrana je eksperimentalna uredniška zasnova, ker omogoča izrazit ritem in hierarhijo: veliki naslovi pritegnejo pozornost, asimetrične fotografske kompozicije pa poudarijo ljudi in projekte. Rdeča barva ohranja prepoznavno identiteto KMŠ; gibanje povezuje posamezne vsebinske sklope, ne da bi nadomestilo navigacijo ali besedilo. Odzivna postavitev, kratki opisi in jasni pozivi so namenjeni predvsem mladim obiskovalcem, hkrati pa ohranjajo dostop do praktičnih informacij.
 
-## Predogledi
-Po uporabnikovi zahtevi so vsi lokalni slikovni predogledi izbrisani (45 datotek). Novih screenshotov ali slikovnih predogledov ne ustvarjamo; preverjanje v brskalniku poteka brez zajema slik. Starejši zapisi o predogledih opisujejo takrat izvedene preglede, datoteke pa niso več vključene.
+## Oblikovni koncept
 
-## Pomembno o slikah
-V `public/assets` je **28 abstraktnih nadomestnih JPG vizualov**, **3 izvorni JPEG portreti ekipe s potrjenim uradnim virom** in **3 WebP izpeljanke portretov**. Evidenca portretov in še nedokumentiranih dovoljenj za javno objavo je v `docs/ABOUT_AND_SOURCES.md`. Na iste poti kasneje prekopiraj uradne fotografije z dovoljenjem KMŠ; ob zamenjavi portreta osveži tudi WebP različico in preveri alt/izrez, da ne ostane stara prednostna slika. Portreti se nalagajo prednostno kot WebP z JPEG rezervo; če slika manjka, aplikacija prikaže nadomestni okvir z oznako 'KMŠ / FOTO'. Logotip je priložil uporabnik; ločeno dokazilo o dovoljenju ni priloženo. Celoten popis v `docs/ASSET_INVENTORY.json`, izvor in status dovoljenj v `docs/ASSETS_AND_SOURCES.md`.
+Vizualni sistem je svetla, eksperimentalna digitalna revija: velika kondenzirana tipografija, asimetrični fotografski razporedi, ravni robovi, plastenje fotografij, izvirne ročne SVG-poteze in povezane sekcije. Fotografije, tipografija in animacije skupaj pripovedujejo o KMŠ; referenčne zasnove so služile kot navdih za uredniški značaj, ne kot vir za kopiranje znamke ali fotografij.
 
-## Audit 01 — 3. 11. 2026
-`npm install`, `npm run typecheck` in `npm run build` so uspeli z Node.js 22.15.0 in npm 10.9.2. Napak tipov ali gradnje ni bilo; izvorna koda in vizualna smer sta ohranjeni. Statično je preverjenih vseh osem poti, 404 in obstoj 18 uporabljenih lokalnih slikovnih poti; ločen preizkus potrjuje kodiranje kontaktnega `mailto`.
+Vrstni red slogovnih datotek je pomemben: `src/main.tsx` najprej naloži `styles.css`, nato `editorial.css`, ki določa trenutno paleto in uredniško tipografijo.
 
-Odprto: ekipa v prototipu se razlikuje od uradne strani, sestava organov še manjka, novice vodijo na domačo stran, newsletter nima integracije. Podrobnosti in viri so v `docs/CHANGELOG.md`. Pregled v brskalniku, na napravah in preverjanje izvirnega PDF briefa niso bili izvedeni; PDF v projektu ni priložen.
+| Token | Vrednost | Vloga |
+|---|---|---|
+| `--primary` | `#E32636` | Primarna identitetna rdeča |
+| `--deep-red` | `#B91F2D` | Globlja rdeča za manjše poudarke in kontrole |
+| `--secondary` | `#FFEAED` | Svetlo rožnate poudarjene površine |
+| `--surface` | `#FFF4F5` | Mehka površina panelom in fotografijam |
+| `--bg` | `#FFFAF8` | Topla »coconut white« osnovna podlaga |
+| `--ink` | `#171717` | Glavno besedilo |
+| `--muted` | `#595959` | Sekundarno besedilo |
+| `--navy` | `#172D4D` | Omejen poudarek na nalepkah, plakatu, obrobi in fokusu |
 
-## Design system 02 — 3. 11. 2026
-`src/styles.css` je urejen v enoten sistem nevtralnih barv, prilagodljive tipografije, razmikov, mrež, obrazcev in fokusnih stanj. Temen hero in noga dopolnjujeta svetlo vsebino; uporabnikov logotip in obstoječe strani so ohranjeni. Popravljeno je tudi čiščenje GSAP pripete sekcije ob prehodu med stranmi.
+Anton je namenjen velikim naslovom, DM Sans tekočemu besedilu, Space Grotesk pa predvsem imenom in informacijski hierarhiji. Pisave se nalagajo prek Google Fonts; na voljo so sistemske nadomestne pisave. Portreti ekipe ostanejo barvni, projektne fotografije pa so praviloma sivinske z barvnim poudarkom ob interakciji. Podrobnosti in kontrastne vrednosti so v [dokumentu o barvah](docs/BRAND_COLORS.md).
 
-V Chromu je preverjenih vseh osem poti in 404 pri širinah 320, 390, 768, 1024, 1440 in 1920 px, brez vodoravnega prelivanja. Preverjeni so meni, filtriranje, fokus, osnovne kontrastne kombinacije in reduced motion ob nalaganju. Typecheck in build uspešna. [Podrobnosti preverjanja](docs/BRAND_COLORS.md). Gre za emulacijo v namiznem Chromu; fizične naprave in drugi brskalniki še niso preverjeni.
+## Animacije in interaktivna izkušnja
 
-## Hero 03 — 3. 11. 2026
-Nova komponenta `Hero.tsx` združuje uvod, naslov »NE SAMO ŠTUDENTI. SKUPNOST.«, uradni gumb za včlanitev in lokalni triptih. Nad 700 px so prikazane tri slike, od 421 do 700 px dve, do 420 px pa poudarjena sredinska slika. Datoteke ostajajo začasni vizuali, kar je jasno označeno; novih fotografij ali zunanjih slikovnih povezav ni.
+- **Uvodna animacija:** `heroAnimations.ts` z GSAP razkrije besedilne vrstice in umiri fotografski kolaž. CTA ostane dostopen; časovnica je v projektnih preverjanjih izmerjena na približno 0,67 s.
+- **Besedilni razkritji:** `textReveals.ts` uporabi kratke ScrollTrigger prehode. Interaktivne vsebine niso skrite z začetno prosojnostjo.
+- **Fotografska zgodba:** tri galerije na domači strani povezujejo vsebinske sklope. `waveMotion.ts` izračuna odzivno kubično Bézierjevo SVG-pot; GSAP `MotionPathPlugin` premika fotografije po njej, `ScrollTrigger` pa veže napredek na drsenje. Zadnja, glavna galerija ima največ en pin, samo pri širini vsaj 1280 px in višini vsaj 760 px. Dodatna dolžina pina je približno 1,15 višine vidnega polja. Ostali prehodi nimajo pina.
+- **Premikanje fotografij:** gre za dejansko gibanje po ukrivljeni poti (v obliki uredniškega vala `~`), ne le za običajen statičen parallax. Postavitev, odmik in rotacija so prilagojeni manjšim zaslonom.
+- **Hover in navigacija:** fotografije, povezave, filtri in mobilni meni imajo odzive na interakcijo. Mobilni meni se upravlja z gumbom z `aria-expanded` in `aria-controls`, podpira Escape ter zapiranje ob navigaciji.
+- **Gladko drsenje:** Lenis je povezan z enim GSAP tickerjem. Ob `prefers-reduced-motion` se gladko drsenje izklopi.
+- **Čiščenje:** `useGsapContext` omeji animacije na komponento, uporablja `matchMedia`, podpira media-query spremembe in odstrani sprožilce ob unmountu. Osvežitve meritev so združene prek `refreshScheduler.ts`.
 
-Sredinska slika se nalaga takoj s prednostjo `high`; preostali sliki in druge slike ohranijo lazy loading. Postavitev rezervira prostor tudi za `SmartImage` fallback. V Chromu preverjenih 11 širin od 320 do 1920 px, oba preloma, lokalne slike, povezava do uvoda, fallback, prehodi in reduced motion. Typecheck in build uspešna. Fizične naprave in drugi brskalniki še niso preverjeni.
+Pri `prefers-reduced-motion` so galerije statične, pin in animacijski prehodi se izklopijo, bistveno besedilo in kontrole pa ostanejo vidni. Dodatne podrobnosti in pretekli preizkusi so v [opisu prenove](docs/EDITORIAL_REDESIGN.md) in [optimizaciji animacij](docs/ANIMATION_UX_OPTIMIZATION.md).
 
-## Povezani scroll 04 — 3. 11. 2026
-`ScrollStory.tsx` ponovi lokalne uvodne slike in jih poveže z uvodom v dogodke: slike se povečajo, napis »SKUPAJ.« se zmanjša in umakne, bela ploskev razkrije »DOŽIVI MARIBOR.« ter se nadaljuje v seznam projektov. En pin se uporablja samo nad 700 px širine in 600 px višine; na telefonih in nizkih ležečih zaslonih ostane naravni tok z blagim povečanjem slik.
+## Strani in funkcionalnosti
 
-Reduced motion izklopi scroll in reveal animacije tudi ob spremembi nastavitve med obiskom. Preverjeni drsenje nazaj, čiščenje ob navigaciji, prelomi in stabilnost postavitve; med izmerjenim namiznim prehodom ni bilo zaznanega layout shifta. Typecheck in build uspešna. [Izvedba in preverjanja](docs/SCROLL_STORY.md).
+| Pot | Vsebina in funkcionalnost |
+|---|---|
+| `/` | Uvodni kolaž, števci 45 / 753 / 29, zgodba o KMŠ, projekti, valovne galerije, članstvo, priložnosti, arhivske novice in e-novice |
+| `/o-nas` | Poslanstvo, ekipa, področja dela, skupščina ter poimenski seznami upravnega odbora, nadzorne komisije in častnega razsodišča |
+| `/dogodki` | Osem projektov s kategorijskimi filtri, števci rezultatov in povezavami na uradne predstavitve; ni koledar prihodnjih terminov |
+| `/novice` | Arhivske objave iz septembra 2026 s povezavami na izvirne članke |
+| `/clanstvo` | Pojasnila članstva in povezava na [uradni obrazec KMŠ](https://studentski-klubi.si/public-forms/jui1g3swbxz) |
+| `/priloznosti` | Aktivizem, predlaganje idej in sodelovanje pri projektih; CTA-ji pripravijo e-poštni osnutek |
+| `/kontakt` | Uradni kontaktni podatki, uradne ure, družbene povezave, e-poštni osnutek in vdelan Google Maps zemljevid lokacije |
+| `/newsletter` | Razlaga stanja prijav in uradni kanali; demonstracijska polja so onemogočena |
+| Neznana pot | Stran 404 z možnostjo vrnitve na domov |
 
-## Dogodki 05 — 3. 11. 2026
-Na `/dogodki` je vseh osem projektov z opisi, preverjenimi na neposrednih uradnih straneh KMŠ, in povezavo do vsake predstavitve. Dodani so tematske kategorije s števci, prikaz števila rezultatov in ponastavitev s povrnitvijo fokusa. Kartice se prilagodijo na dva oziroma en stolpec; uporabljajo obstoječe lokalne začasne vizuale.
+Števci na domači strani so fiksne vrednosti, ne podatki v živo. Kontaktni obrazec odpre `mailto` osnutek in sporočila ne pošlje sam. CTA-ji za priložnosti prav tako odprejo uporabnikov e-poštni program. Newsletter nima povezane storitve, ne sprejema naslovov in ne prikazuje lažnega uspeha. Članstvo odpre zunanji obrazec; njegova oddaja v tem projektu ni integrirana ali potrjena.
 
-Stran predstavlja projekte, ne koledarja prihodnjih izvedb; Ftrgatev izrecno povzema napoved iz leta 2025. Typecheck in build uspešna, vseh šest filtrov preverjenih pri osmih širinah od 320 do 1920 px. [Viri in omejitve](docs/EVENTS_AND_SOURCES.md).
+## Tehnologije
 
-## O nas in organi 06 — 3. 11. 2026
-Stran `/o-nas` vključuje poslanstvo, petčlansko ekipo, vodje področij, razlago skupščine in poimensko sestavo Upravnega odbora, Nadzorne komisije ter Častnega razsodišča. Podatki so usklajeni z neposredno pregledano uradno stranjo KMŠ, z vidnim datumom in povezavo na vir. Trije portreti so lokalno shranjeni iz potrjenega vira; drugi dve kartici uporabljata inicialke.
+| Tehnologija | Uporaba |
+|---|---|
+| React 19 | Uporabniški vmesnik in komponente |
+| TypeScript 5.7 | Tipizacija aplikacijske kode |
+| Vite 6 | Razvojni strežnik in produkcijska gradnja |
+| React Router 7 | Poti in navigacija v enostranski aplikaciji |
+| GSAP 3 | Časovnice in animacije |
+| ScrollTrigger | Scroll prehodi, razkritja in edini namizni pin |
+| MotionPathPlugin | Premikanje fotografij po izračunani Bézierjevi poti |
+| Lenis | Gladko kolesno drsenje, povezano z GSAP |
+| CSS | Postavitve, oblikovni tokeni, odzivnost in preprosti prehodi; Tailwind ni uporabljen |
+| Lucide React | Ikone v vmesniku |
+| Git / GitHub | Različice izvorne kode; repo je zaseben |
 
-Typecheck in build uspešna; podatki, sidra in mreže preverjeni pri devetih širinah, brez vodoravnega prelivanja. [Viri, fotografije in preverjanja](docs/ABOUT_AND_SOURCES.md). Dovoljenja za javno objavo portretov še niso dokumentirana; nove člane ali njihove fotografije smo vključili samo na podlagi uradnega vira.
+Verzije odvisnosti so navedene v `package.json` in natančneje zaklenjene v `package-lock.json`. Projekt ne vsebuje ločenega avtomatiziranega testnega ali lint skripta.
 
-## Članstvo in priložnosti 07 — 3. 11. 2026
-Na `/clanstvo` je neposreden CTA za uradni obrazec že v uvodu, tri pojasnjene vsebinske ugodnosti, kratka navodila ter kontakt za vprašanja. `/priloznosti` vključuje aktivizem, predlaganje idej in sodelovanje pri projektu, vsako s svojim e-poštnim osnutkom. Sporočila se ne pošiljajo samodejno; lokalnih obrazcev za te poti ni.
+## Struktura projekta
 
-Typecheck in build uspešna. Obe strani preverjeni pri osmih širinah od 320 do 1920 px, brez prelivanja; Enter na CTA odpre pravilen uradni obrazec. Zunanji vmesnik se prikaže, a beleži tudi napake in oddaja ni bila preizkušena. [Viri in omejitve](docs/MEMBERSHIP_AND_SOURCES.md).
+```text
+.
+├── docs/                         # Viri, prenova, dostopnost, zgodovina in oddaja
+├── public/
+│   ├── favicon.png
+│   ├── apple-touch-icon.png
+│   └── assets/
+│       ├── branding/             # Logotip KMŠ
+│       ├── community/            # Lokalni prizori skupnosti
+│       ├── decor/                # Izvirne SVG dekoracije
+│       ├── events/               # JPEG/WebP projektne fotografije
+│       ├── gallery/              # Dodatni galerijski prizori
+│       ├── hero/                 # Slike za uvodni kolaž
+│       └── team/                 # Portreti in označena profilna ilustracija
+├── scripts/                      # Python orodja za pripravo/pregled fotografij
+├── src/
+│   ├── animations/               # Hero, reveal, valovna pot, refresh scheduler
+│   ├── components/
+│   │   ├── editorial/            # Fotografije, grafika, galerije, lokacija
+│   │   └── ...                   # Layout, navigacija, skupne komponente
+│   ├── data/                     # Vsebina, kontakti, organi, slikovni katalogi
+│   ├── hooks/                    # useGsapContext
+│   ├── pages/                    # Vsebina posameznih poti
+│   ├── utils/                    # Pomožne funkcije, npr. sestava mailto
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── styles.css
+│   └── editorial.css
+├── KMS-Foto-Paket/               # Lokalni arhiv izvirnikov; ni v public/dist
+├── index.html
+├── package.json
+└── vite.config.ts
+```
 
-## Kontakt in newsletter 08 — 3. 11. 2026
-Uradni naslov, telefon, ure ter Instagram/Facebook/YouTube so preverjeni in centralizirani. Kontaktni obrazec jasno odpre e-poštni program brez samodejnega pošiljanja. Newsletter je odkrit iz noge in kontakta; neaktiven predogled ne omogoča vnosa ali oddaje podatkov in ne prikazuje lažne uspešne prijave.
+`src/data/kmsPhotos.ts` vodi datoteke, opise, dimenzije, navedbe in vire. `kmsImages.ts` jih poveže z uredniškimi umestitvami, `kmsPeopleImages.ts` pa s preverjenimi profili. Izvirniki v `KMS-Foto-Paket/` so ločeni od datotek, ki jih Vite objavi iz `public/`.
 
-Pripravljen je konkreten predlog Mailchimp integracije z dvojno potrditvijo prek gostovanega obrazca ali odobrenega strežniškega endpointa; povezava s storitvijo ni izvedena. Typecheck in build uspešna, obe strani preverjeni pri devetih širinah. [Podatki, viri, omejitve in predlog integracije](docs/CONTACT_AND_NEWSLETTER.md).
+## Namestitev in lokalni razvoj
 
-## Slike in branding 09 — 4. 11. 2026
-Trije lokalni portreti so ponovno primerjani z uradnim virom in dobili WebP različice, skupaj 32,5 % manjše od JPEG. Izvirniki in kvadraten izrez 300 × 300 px so ohranjeni; `<picture>` ponuja JPEG rezervo in označen fallback. Alt opisi začasnih vizualov so usklajeni tudi na domači strani. Uporabnikov PNG logotip in favicon ostajata vključena, z eksplicitnimi dimenzijami; placeholder ni uporabljen.
+**Predpogoji:** Node.js 20 ali novejši in npm. Zahteva Node 20 je projektno priporočilo; v `package.json` ni določena kot `engines`.
 
-Typecheck in build uspešna. Tri strani s slikami preverjene pri sedmih širinah, tudi povratek na JPEG/fallback brez spremembe višine ter ohranjena scroll scena. [Popis, viri in dovoljenja](docs/IMAGE_REVIEW.md). Avtorstvo in dovoljenja za javno objavo ostajajo odprti; hero in dogodki še uporabljajo začasne vizuale.
+```sh
+npm ci
+npm run dev
+```
 
-## Ponovna potrditev RED / WHITE — 4. 11. 2026
-Rdeča nadomesti temna ozadja navigacije, hero sekcije, scroll scene, noge in gumbov. Bela in svetlo rožnata razdelita vsebinske površine; naslovi dobijo rdeče poudarke, tekoče besedilo ostane temno. Uporabnikov logotip, favicon, poti, struktura, izrezi slik in GSAP animacije ostanejo ohranjeni.
+Vite izpiše lokalni naslov. Za druge ukaze:
 
-Typecheck in build uspešna. V Chromu preverjenih vseh osem poti in 404 pri šestih širinah (54 kombinacij), meni, filtri, reduced motion in scroll prehod na telefonu/namizju. [Veljavna paleta in kontrasti](docs/BRAND_COLORS.md). Objavljeni GitHub še odraža starejšo različico, ne teh lokalnih sprememb.
+| Ukaz | Namen |
+|---|---|
+| `npm run typecheck` | Preverjanje TypeScript tipov |
+| `npm run build` | Preverjanje TypeScript projekta in produkcijska gradnja v `dist/` |
+| `npm run preview` | Lokalni predogled zadnje produkcijske gradnje |
 
-## Smooth scroll — 4. 11. 2026
-Dodano je mehko drsenje z miško in sledilno ploščico prek Lenis, povezano z obstoječim GSAP tickerjem. Dotik, tipkovnica in sidra ohranijo brskalnikovo vedenje; glajenje se ob reduced motion sproti izklopi. Menjava strani prekine preostali zagon. Struktura in RED / WHITE ostajata ohranjeni.
+Skriptov `npm test`, `npm run lint` ali enakovrednega avtomatiziranega testnega nabora projekt ne vsebuje. `npm run preview` ni produkcijsko gostovanje. Pri objavi je treba strežnik nastaviti tako, da za neposredne obiske SPA-poti vrne `index.html`; konfiguracija gostovanja v repozitoriju ni potrjena.
 
-Typecheck in build uspešna. Preverjene vse strani na namizju, mobilni/tablični prikaz, sidra, navigacija in sprotni reduced motion. [Izvedba in omejitve preverjanja](docs/SCROLL_STORY.md#smooth-scroll--4-11-2026).
+## Posnetki zaslona
 
-## Stalno viden header — 4. 11. 2026
-Navigacija je pripeta na vrh z `position: sticky`, brez izločanja iz toka vsebine. Sidra upoštevajo višino headerja; mobilni meni ima lasten scroll tudi na nizkih zaslonih. Pripeta GSAP scena zapolni prostor pod headerjem. Typecheck in build uspešna; vse strani preverjene pri štirih velikostih zaslona. [Podrobnosti](docs/SCROLL_STORY.md#stalno-viden-header--4-11-2026).
+V repozitoriju trenutno ni posnetkov aplikacije. Zato README ne kaže na neobstoječe datoteke. Po pridobitvi dovoljenja za ustvarjanje predogledov bi jih bilo mogoče dodati v `docs/screenshots/`; v tem izvodu predogledi niso ustvarjeni ali shranjeni.
 
-## Diskretni glasbeni motivi — 4. 11. 2026
-Lokalne linijske ilustracije kitare, harmonike ter bobnov z mikrofonom zapolnijo praznejša ozadja uvodov in scroll zgodbe. Motivi uporabljajo 12 % rdeče, na telefonu 7,5 %, ostanejo za vsebino in ne ovirajo klikov. To niso fotografije KMŠ dogodkov. Typecheck in build uspešna; vseh osem strani preverjenih pri treh širinah. [Izvedba](docs/BRAND_COLORS.md#dekorativni-glasbeni-motivi--4-11-2026).
+## Odzivnost in dostopnost
 
-## Izziv CTRL+CREATE
-Rok: **14. december 2026**. Ocena: UX/navigacija 25 %, vizualna podoba 25 %, vsebina 20 %, funkcionalnost 20 %, mobilna prilagoditev 10 %. Nujni elementi: predstavitev KMŠ in organov društva, dogodki/novice, članstvo, priložnosti, kontakt in družbena omrežja, newsletter. Oddaja: delujoč prototip, opis ideje 150–300 besed, orodja in deljiva povezava. Gostovanje na lastni domeni ni potrebno.
+Postavitve prilagajajo kolaže, galerije, navigacijo, obrazce in sezname zaslonom telefona, tablice in namizja. Navigacija ima preskočno povezavo, vidni fokus in tipkovniško podporo; pot SPA prenese fokus na glavno vsebino. Uporabljeni so semantični naslovi, opisni `alt` za vsebinske fotografije, ustrezna ARIA stanja mobilnega menija in filtrov ter obvestilo o številu filtriranih projektov. Dekorativni SVG-ji so izločeni iz drevesa dostopnosti in ne prestrezajo klikov.
 
-## Nadaljnji koraki
-Preberi `AGENTS.md`, `docs/CODEX_STEPS.md`, `docs/CONTENT_CHECKLIST.md`, `docs/ASSETS_AND_SOURCES.md` in `docs/SUBMISSION.md`. Izvedi naloge v navedenem vrstnem redu.
+Reduced motion izklopi Lenis, pin, valovno gibanje in prehode, ki niso nujni; statične fotografije in ključne vsebine ostanejo na voljo. Dokumentirani responsive pregledi uporabljajo emulirane mere v namiznem Chromu. Fizične naprave, Safari/Firefox in celovita neodvisna presoja WCAG niso potrjeni.
 
-## Orodja in avtorstvo
-React + TypeScript + Vite + GSAP + Lenis. Struktura in načrt sta nastala s pomočjo ChatGPT. Codex je izvedel audit 01, v koraku 02 poenotil CSS, popravil čiščenje GSAP in dostopna stanja kontrol ter preveril odzivnost v Chromu z orodjem chrome-devtools-cli. V koraku 03 je pripravil samostojno hero komponento, uvodno besedilo in odziven lokalni triptih ter preveril postavitve, fallback in povezave v Chromu. V koraku 04 je povezal scroll sceno z dogodki, dodal odzivno upravljanje animacij in sprotni reduced motion ter preveril drsenje, stabilnost in čiščenje. V koraku 05 je preveril uradne projektne vire, povzel opise, uredil kategorije in kartice ter preizkusil filtre in odzivnost. V koraku 06 je preveril ekipo in organe, uredil stran O nas ter vključil tri vizualno pregledane portrete z uradnega vira. V koraku 07 je po preverjenih virih prenovil članstvo in priložnosti, dodal neposredne CTA in e-poštne predloge ter preveril postavitve in odpiranje obrazca. V koraku 08 je preveril kontaktne in socialne podatke, ohranil pošten mailto, onemogočil newsletter predogled ter pripravil načrt Mailchimp integracije in preverjanja. V koraku 09 je pregledal slike in branding, preveril izvor portretov, pripravil WebP s Pillow in rezervni prikaz ter dokumentiral popis in status dovoljenj. Po ponovni potrditvi RED / WHITE je spremenil barvne tokene in theme-color, ohranil strani/animacije ter preveril kontrast in odzivnost. Dodal je tudi Lenis smooth scroll, usklajen z GSAP, sidri, navigacijo in reduced motion, ter ga preveril v Chromu. Uredil je tudi stalno viden header, odmike sider in pripete scene ter preveril mobilni meni. Na uporabnikovo željo je napisal tri izvirne dekorativne SVG motive glasbil ter preveril berljivost, odzivnost in scroll. Dodal je uporabnikove fiksne animirane števce, omogočil barvne portrete in odstranil predoglede ter preveril spremembe brez zajema slik. Posodobil je tudi dokumentacijo. GitHub Copilot pri teh korakih ni bil uporabljen. Avtor je odgovoren za pregled, testiranje in končno oddajo.
+## Znane omejitve in nadaljnje delo
 
-## Zgodovina palete: KMŠ RED / WHITE in korak 02 (03. 11. 2026)
-Pred korakom 02 je bila uporabljena rdeče-bela paleta, v koraku 02 nato monokromatska. Ponovno uporabnikovo navodilo 4. 11. 2026 vrača RED / WHITE; starejši zapisi in predogledi ostajajo zgodovinski. Priložen uporabnikov logotip ostaja v `public/assets/branding/kms-logo-original.png`, za navigacijo obrezan v `kms-logo-header.png`, favicon pa je `public/favicon.png`. Stari placeholder logotip ni uporabljen.
+- Javna predstavitvena povezava ni znana; zaseben GitHub repo ni nadomestilo za demo.
+- Newsletter je demonstracija brez zbiranja podatkov. Aktivacija potrebuje potrjen endpoint/storitev, veljavno privolitev in ustrezno obvestilo o zasebnosti.
+- Kontakt in tri poti sodelovanja odpirajo e-poštni program; pošiljanje ni samodejno.
+- Članstvo vodi na zunanji uradni obrazec; zunanja oddaja ni bila preizkušena.
+- Novice so arhivske; stran dogodkov predstavlja projekte, ne aktualnega koledarja. Uradne podatke je treba pred oddajo ponovno preveriti.
+- Pisave in zemljevid uporabljajo zunanje storitve (Google Fonts in Google Maps); njihova dosegljivost je odvisna od omrežja in pogojev ponudnikov.
+- Za objavo še manjkajo gostovanje, fizično testiranje naprav, preverjanje drugih brskalnikov, celovit pregled dostopnosti in primerjava s PDF-jem briefa, ki ga ni v repozitoriju.
+- Fotografije in logotip ostajajo gradiva KMŠ oziroma drugih navedenih virov. Uporabnikovo poročilo o dovoljenju za KMŠ fotografije je dokumentirano, vendar pisno pravno dokazilo ni priloženo.
+
+## Avtorstvo in razvoj projekta
+
+**Avtor: Tilen Jäger.** Avtor je določil cilj in ustvarjalno smer, opredelil zahtevano uporabniško izkušnjo, usmerjal izbiro oblikovnih rešitev ter iterativno pregledoval in potrjeval spremembe. Koda in projektna dokumentacija beležita tudi AI-podprto implementacijo; zato README ne pripisuje avtorju osebnega programiranja vsake komponente.
+
+Pregled prispevkov in obseg potrjenih navedb sta v [dokumentu o avtorstvu](docs/AUTHORSHIP.md), transparentna razčlenitev orodij pa v [dokumentu o AI-podprtem razvoju](docs/AUTHORSHIP.md#uporaba-umetne-inteligence-pri-razvoju).
+
+## Dokumentacija
+
+- [CTRL+CREATE 2026 — osnutek prijave in kontrolni seznam](docs/CTRL_CREATE_SUBMISSION.md)
+- [Avtorstvo, uporaba AI in licenčne opombe](docs/AUTHORSHIP.md)
+- [Viri fotografij in navedbe](docs/ASSETS_AND_CREDITS.md)
+- [Razvojna zgodovina](docs/DEVELOPMENT_HISTORY.md)
+- [Uredniška prenova in izvedba animacij](docs/EDITORIAL_REDESIGN.md)
+- [Oblikovna paleta in kontrast](docs/BRAND_COLORS.md)
+- [Vsebinski viri in podatki](docs/ABOUT_AND_SOURCES.md), [projekti](docs/EVENTS_AND_SOURCES.md), [kontakt in e-novice](docs/CONTACT_AND_NEWSLETTER.md)
+- [Fotografski uvoz in dovoljenja](docs/PHOTO_IMPORT.md), [pregled fotografij](docs/PHOTOGRAPHY_AUDIT.md)
+
+Podrobna prijavna dokumentacija je v [docs/CTRL_CREATE_SUBMISSION.md](docs/CTRL_CREATE_SUBMISSION.md). Pred oddajo je treba dodati javni demo URL, preveriti končno stanje vsebine in pridobiti oziroma pregledati izvirni natečajni brief.

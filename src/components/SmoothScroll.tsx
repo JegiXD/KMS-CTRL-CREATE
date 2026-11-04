@@ -22,7 +22,7 @@ export default function SmoothScroll() {
       const lenis = new Lenis({
         autoRaf: false,
         smoothWheel: true,
-        lerp: 0.12,
+        lerp: 0.2,
         syncTouch: false,
         // Native anchors preserve URL hashes, history and keyboard focus.
         anchors: false,

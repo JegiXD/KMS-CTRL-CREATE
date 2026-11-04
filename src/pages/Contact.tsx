@@ -1,3 +1,5 @@
+import { EditorialPhoto } from '../components/editorial/EditorialPhoto';
+import LocationSection from '../components/editorial/LocationSection';
 import { Link } from 'react-router-dom';
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react';
 import { clubContact, contactCheckedAt, contactSource, socials } from '../data/contact';
@@ -6,10 +8,11 @@ import { buildContactMailto } from '../utils/contact';
 export default function Contact() {
   return (
     <>
-      <section className="page-hero contact-hero" aria-labelledby="contact-title">
+      <section className="page-hero has-photo contact-hero" aria-labelledby="contact-title">
         <p className="eyebrow">06 / KONTAKT</p><h1 id="contact-title">ZAČNIMO<br /><em>POGOVOR.</em></h1>
         <p className="lead">Za vprašanja, ideje in sodelovanje. Poišči nas v Mariboru, pokliči ali pripravi e-poštno sporočilo.</p>
         <a className="pill" href={`mailto:${clubContact.email}`}>ODPRI E-POŠTO <Mail size={18} aria-hidden="true" /></a>
+        <EditorialPhoto image="pisarna" className="page-hero-photo" />
       </section>
       <section className="section contact-grid contact-details" aria-labelledby="contact-details-title">
         <div>
@@ -40,6 +43,7 @@ export default function Contact() {
           <p className="helper">Če nimaš nastavljenega e-poštnega programa, naslov <strong>{clubContact.email}</strong> prekopiraj v svojo spletno pošto.</p>
         </div>
       </section>
+      <LocationSection />
       <section className="section white-section contact-newsletter"><p className="eyebrow">NOVICE KMŠ</p><h2>SPREMLJAJ <em>DOGAJANJE.</em></h2><p className="lead">Novosti najdeš na naših uradnih kanalih. Preveri tudi stanje prijav na e-novice.</p><Link className="pill" to="/newsletter">E-NOVICE / STANJE PRIJAV ↗</Link></section>
     </>
   );

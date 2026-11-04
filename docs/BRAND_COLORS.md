@@ -1,4 +1,47 @@
-# KMŠ — veljavni oblikovni sistem RED / WHITE
+# KMŠ — veljavni experimental editorial sistem (4. 11. 2026)
+
+Najnovejše uporabnikovo naročilo »Complete Experimental Editorial Website Redesign« razširja rdeče-belo paleto z omejeno mornarsko modro in nadomešča starejši sistem spodaj. Izvedba je v `src/editorial.css`, naloženem za osnovnim `styles.css`.
+
+| Token | Barva | Namen |
+|---|---|---|
+| `--primary` | `#E32636` | Glavna identiteta, veliki poudarki, članstvo |
+| bela | `#FFFFFF` | Papirnati okvirji, CTA, besedilo na rdeči |
+| `--deep-red` | `#B91F2D` | Gumbi, noga, drobni rdeči napisi |
+| `--vibrant-red` | `#F04452` | Rezervni barvni token, brez prisiljene uporabe |
+| `--secondary` | `#FFEAED` | Svetle poudarjene sekcije |
+| `--surface` | `#FFF4F5` | Mehka podlaga slik in panelov |
+| `--bg` | `#FFFAF8` | Topla bela osnovne strani |
+| `--ink` | `#171717` | Glavno besedilo, ločnice |
+| `--muted` | `#595959` | Sekundarno besedilo, temnejše zaradi kontrasta |
+| `--navy` | `#172D4D` | Samo manjši stickerji, plakat, okvir in fokus |
+
+Ni velikih črnih/modrih UI ozadij. Svetla podlaga prevladuje; rdeča nosi identiteto. `theme-color` je `#E32636`. Uporabnikov logotip in favicon ostajata nespremenjena.
+
+## Tipografija, fotografija in geometrija
+
+Anton 400 za velike kondenzirane naslove, DM Sans za besedilo, Space Grotesk 700 za imena/role in informacijske naslove. `clamp()` za tekoče mere, omejena širina odstavkov in kontrastne podlage pod naslovom, ki prekriva fotografijo. Asimetrični fotografski razprostrti prikazi, tanke črte in ravni robovi nadomestijo generične kartice. Fotografije so sivinske z barvnim hoverjem, **portreti ekipe vedno barvni**.
+
+Breakpoints: do 767 px fotografije uvodov v naravnem toku in en stolpec projektov; pri tablici manjši kolaži in preverjen razmik do besedila; polna navigacija nad 1100 px. Galerija se pripne šele pri najmanj 1024 × 680 px; vedno samo en pin. Reduced motion preklopi v statično mrežo. Celotna izvedba je v [EDITORIAL_REDESIGN.md](EDITORIAL_REDESIGN.md).
+
+## Kontrast iz relativne sRGB luminance
+
+| Par | Razmerje |
+|---|---|
+| Bela / primarna rdeča | 4,57 : 1 |
+| Bela / globoka rdeča | 6,37 : 1 |
+| Primarna rdeča / rožnata | 3,97 : 1 — samo veliki naslovni poudarki |
+| Globoka rdeča / rožnata | 5,53 : 1 |
+| Temno besedilo / topla bela | 17,31 : 1 |
+| Sekundarno besedilo / rožnata | 6,09 : 1 |
+| Bela / mornarsko modra | 13,83 : 1 |
+
+Majhni gumbi/napisi uporabljajo globoko rdečo; fokus ima modri obris in dodatno belo podlago. To ni celotna presoja WCAG. Dejanski typecheck/build, 36 responsive kombinacij in interakcije so opisani v dokumentu prenove. Slikovnih predogledov ni.
+
+---
+
+Naslednji zapisi so zgodovinski in **niso navodilo za novo prenovo**.
+
+# Zgodovina pred celovito editorial prenovo
 
 Najnovejše uporabnikovo navodilo ponovno potrjuje RED / WHITE (izvedeno 4. 11. 2026) in nadomešča monokromatsko smer koraka 02. Struktura, vse strani, scroll animacije, izrezi in sivinski prikaz fotografij ostanejo ohranjeni. Datoteke uporabnikovega logotipa in favicon niso spremenjene; placeholder ni uporabljen.
 
@@ -7,19 +50,21 @@ Najnovejše uporabnikovo navodilo ponovno potrjuje RED / WHITE (izvedeno 4. 11. 
 | CSS spremenljivka | Barva | Uporaba |
 |---|---|---|
 | `--bg` | `#FFFFFF` | Osnovno ozadje |
-| `--primary` | `#E32636` | Navigacija, hero, scroll scena, noga, gumbi in veliki naslovni poudarki |
+| `--primary` | `#E32636` | Poudarki naslovov, števci in napisi belih gumbov |
+| `--red-surface` | `#D92333` | Nekoliko temnejša rdeča za velike ploskve in primarne gumbe |
+| `--red-pattern` | lokalni `facet-pattern.svg` | Nežen ponovljiv geometrijski vzorec na rdečih ozadjih |
 | `--secondary` | `#FFF0F2` | Sekundarne svetle površine |
 | `--ink` | `#181818` | Glavno besedilo |
 | `--muted` | `#595959` | Berljivo sekundarno besedilo na beli/rožnati |
 | `--surface` | `var(--secondary)` | Uvodi podstrani, poudarjene sekcije, kontaktni paneli, fallback |
 | `--line` | `#E7BFC4` | Dekorativne ločnice iz iste rožnate družine |
 | `--control-line` | `#9B6670` | Temnejše rožnate meje obrazcev in filtrov |
-| `--inverse` | `var(--primary)` | Združljivo ime kontrastne površine; pomeni rdečo, ne črne |
+| `--inverse` | `var(--red-surface)` | Združljivo ime kontrastne površine; pomeni rdečo, ne črne |
 | `--on-inverse` | `#FFFFFF` | Besedilo na rdeči |
 | `--inverse-muted` | `#FFFFFF` | Tudi drobno sekundarno besedilo na rdeči ostane belo |
 | `--inverse-line` | bela / 40 % | Dekorativne ločnice na rdeči |
 
-Ni črnih UI ozadij ali temnih gradientov. Slikovni fallback je svetlo rožnat s temnim besedilom. Obstoječa črno-bela fotografija in temni obrisi v uporabnikovem logotipu ostanejo del nespremenjenih slikovnih datotek. `theme-color` v `index.html` je `#E32636`.
+Ni črnih UI ozadij ali temnih gradientov. Slikovni fallback je svetlo rožnat s temnim besedilom. Obstoječa črno-bela fotografija in temni obrisi v uporabnikovem logotipu ostanejo del nespremenjenih slikovnih datotek. `theme-color` v `index.html` je `#D92333`.
 
 ## Kontrast
 
@@ -94,3 +139,15 @@ Portreti treh članov se prikazujejo v izvornih barvah; izrez, WebP/JPEG rezerva
 Preverjeno brez screenshotov v produkcijskem Chromu: širine 320, 390, 768 in 1440 px, naslov/vrstni red, oznake, vmesne in končne vrednosti, stabilne mere okvirjev, brez ponovitve ob vrnitvi z drsenjem ali prelivanja, dostopne končne vrednosti in trije barvni WebP portreti. Reduced motion ob nalaganju pri 320/1440 px in sprotni preklop med animacijo pokažeta 45/753/29. Preverjeni pripeta zgodba in trije prehodi O nas → Domov brez podvojenih sekcij/pinov ali napak v konzoli. Typecheck in build uspešna. Fizične naprave in drugi brskalniki niso preverjeni.
 
 Vseh 45 slikovnih predogledov je na uporabnikovo zahtevo odstranjenih, povezave do njih so odstranjene. Novi predogledi/screenshoti se ne generirajo. Zgodovinski zapisi o prej pregledanih posnetkih niso več povezave do obstoječih datotek. Codex je pripravil števec, CSS in preverjanja ter dokumentacijo; Copilot ni bil uporabljen.
+
+## Pregled uporabnikove prenove s Copilotom — 4. 11. 2026
+
+Pregledani sta prenovi v commitih `79c03a9` in `13fa094` (slednji navaja Copilot kot soavtorja). Ohranjeni so klikljive hero slike, prilagodljivi hover na namizju, centriran naslov števcev, novi razmiki, bobni ob naslovnem bloku in razširjena noga z izrecno neaktivnim newsletter prikazom.
+
+Popravki: header nima več auto-hide stanja ali začetnega zdrsa iz zaslona; senca ob drsenju ostane. Pin znova uporablja prostor pod headerjem. Obe koloni naslovnega bloka sta prilagodljivi, motiv bobnov nima odmika čez rob. Kitara ostane znotraj sekcije. Širjenje triptiha velja samo nad 700 px in na napravah s hoverjem brez reduced motion; zoom slike ima prehod. Bela osnovna površina znova zagotovi kontrast rdečih drobnih napisov 4,57 : 1 (na kremni #F8F5EF je bil 4,20 : 1).
+
+Temnejša rdeča ostaja #D92333; ponovljiv izvirni geometrijski SVG ima linije #7A0C18 pri 32 % opacity in debelini 1,6. Bela na osnovni rdeči doseže 4,95 : 1, na liniji približno 6,36 : 1. Gumbi ostanejo brez vzorca. Motiv je statičen, brez dodatne knjižnice ali plasti nad kontrolami.
+
+Typecheck/build uspešna. Brez screenshotov v produkcijskem Chromu preverjenih osem poti × šest širin 320/390/700/701/768/1440 (48 kombinacij), brez vodoravnega prelivanja; header ostane viden in footer kontrolniki onemogočeni. Dejanski hover triptiha pri 390/700/701/1440 ohrani 1/2/3/3 stolpce; klik vodi na dogodke. Pin/prehod/čiščenje in vidnost naslova preverjeni pri 701×601, 768×1024, 1024×601 in 1440×1000. Brez napak v konzoli pri teh preizkusih. Fizične naprave in drugi brskalniki niso preverjeni.
+
+AI: uporabnik je prenovo pripravil s Copilotom, Codex je izvedel ta pregled in ciljne popravke. Brez ustvarjanja slikovnih predogledov ali sprememb fotografij.
