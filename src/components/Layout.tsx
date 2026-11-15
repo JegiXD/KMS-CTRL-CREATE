@@ -50,7 +50,7 @@ export default function Layout() {
     <SmoothScroll />
     <a className="skip-link" href="#main-content">PRESKOČI NA VSEBINO</a>
     <header ref={header} className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-      <Link to="/" className="brand" aria-label="KMŠ domov"><img src="/assets/branding/kms-logo-header.png" alt="Logotip Kluba mariborskih študentov" width={565} height={292} decoding="async" /></Link>
+      <Link to="/" className="brand" aria-label="KMŠ domov"><img src={`${import.meta.env.BASE_URL}assets/branding/kms-logo-header.png`} alt="Logotip Kluba mariborskih študentov" width={565} height={292} decoding="async" /></Link>
       <button ref={toggle} className="mobile-toggle" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(current => !current)} aria-label={open ? 'Zapri meni' : 'Odpri meni'}><span className="hamburger" aria-hidden="true"><span /><span /><span /></span></button>
       <nav inert={compact && !open} id="main-navigation" data-lenis-prevent={open ? true : undefined} className={`navigation${open ? ' is-open' : ''}`} aria-label="Glavna navigacija" onBlur={event => { if (!header.current?.contains(event.relatedTarget as Node)) setOpen(false); }}>
         {navigation.map(([to, label]) => <NavLink key={to} to={to} end={to === '/'} onClick={closeMenu}>{label}</NavLink>)}

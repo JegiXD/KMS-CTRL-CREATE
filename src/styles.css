@@ -12,7 +12,7 @@
   --bg: #ffffff;
   --primary: #e32636;
   --red-surface: #d92333;
-  --red-pattern: url('/assets/decor/facet-pattern.svg');
+  --red-pattern: url('/KMS-CTRL-CREATE/assets/decor/facet-pattern.svg');
   --secondary: #fff0f2;
   --ink: #181818;
   --muted: #595959;
@@ -214,13 +214,13 @@ svg { flex-shrink: 0; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: url('/assets/decor/guitar.svg') no-repeat right var(--page-gutter) center / clamp(13rem, 29vw, 28rem) auto;
+  background: url('/KMS-CTRL-CREATE/assets/decor/guitar.svg') no-repeat right var(--page-gutter) center / clamp(13rem, 29vw, 28rem) auto;
   opacity: 0.12;
 }
 .intro::before { background-position: right 1rem top 0; background-size: clamp(16rem, 32vw, 30rem) auto; }
-.events-hero::before, .story-next::before { background-image: url('/assets/decor/stage.svg'); background-size: clamp(18rem, 39vw, 36rem) auto; }
+.events-hero::before, .story-next::before { background-image: url('/KMS-CTRL-CREATE/assets/decor/stage.svg'); background-size: clamp(18rem, 39vw, 36rem) auto; }
 .story-next::before { background-position: right var(--page-gutter) top 10%; }
-.participation-hero::before, .participation-end::before, .newsletter-hero::before { background-image: url('/assets/decor/accordion.svg'); background-size: clamp(17rem, 36vw, 33rem) auto; }
+.participation-hero::before, .participation-end::before, .newsletter-hero::before { background-image: url('/KMS-CTRL-CREATE/assets/decor/accordion.svg'); background-size: clamp(17rem, 36vw, 33rem) auto; }
 
 .section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
 .section-head h2 { margin: 0; }
@@ -272,7 +272,7 @@ svg { flex-shrink: 0; }
 /* The drums sit on the heading block, which the curtain counter-moves, so they stay still beside the text. */
 .story-next::before { content: none; }
 .story-next-inner { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); width: min(100%, 76rem); margin-inline: auto; }
-.story-next-inner::before { content: ''; grid-column: 2; grid-row: 1 / span 3; width: 100%; aspect-ratio: 560 / 400; pointer-events: none; background: url('/assets/decor/stage.svg') no-repeat center / contain; opacity: 0.12; }
+.story-next-inner::before { content: ''; grid-column: 2; grid-row: 1 / span 3; width: 100%; aspect-ratio: 560 / 400; pointer-events: none; background: url('/KMS-CTRL-CREATE/assets/decor/stage.svg') no-repeat center / contain; opacity: 0.12; }
 .story-next-inner > * { grid-column: 1; }
 .story-next-inner > .eyebrow { align-self: start; margin-bottom: var(--space-2); }
 .events-section { padding-top: var(--space-4); background: var(--bg); }

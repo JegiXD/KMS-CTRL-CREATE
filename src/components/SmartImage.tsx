@@ -15,13 +15,16 @@ type SmartImageProps = {
 export function SmartImage({ src, webpSrc, alt, className = '', loading = 'lazy', fetchPriority = 'auto', width, height }: SmartImageProps) {
   const [failedWebp, setFailedWebp] = useState<string>();
   const [failedImage, setFailedImage] = useState<string>();
-  const useWebp = webpSrc && failedWebp !== webpSrc;
+  const assetUrl = (path: string) => path.startsWith('/') ? `${import.meta.env.BASE_URL}${path.slice(1)}` : path;
+  const resolvedSrc = assetUrl(src);
+  const resolvedWebpSrc = webpSrc ? assetUrl(webpSrc) : undefined;
+  const useWebp = resolvedWebpSrc && failedWebp !== resolvedWebpSrc;
   return (
     <div className={`smart-image ${className}`}>
-      {failedImage !== src ? (
+      {failedImage !== resolvedSrc ? (
         <picture>
-          {useWebp && <source srcSet={webpSrc} type="image/webp" />}
-          <img key={useWebp ? webpSrc : src} src={src} alt={alt} width={width} height={height} loading={loading} fetchPriority={fetchPriority} decoding="async" onError={() => useWebp ? setFailedWebp(webpSrc) : setFailedImage(src)} />
+          {useWebp && <source srcSet={resolvedWebpSrc} type="image/webp" />}
+          <img key={useWebp ? resolvedWebpSrc : resolvedSrc} src={resolvedSrc} alt={alt} width={width} height={height} loading={loading} fetchPriority={fetchPriority} decoding="async" onError={() => useWebp ? setFailedWebp(resolvedWebpSrc) : setFailedImage(resolvedSrc)} />
         </picture>
       ) : (
         <div className="image-fallback" role="img" aria-label={alt}>

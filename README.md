@@ -7,8 +7,8 @@ Odziven, interaktiven spletni prototip za predstavitev Kluba mariborskih študen
 | **Status** | Delujoč prototip; javna produkcijska objava ni potrjena |
 | **Avtor** | Tilen Jäger |
 | **Natečaj** | CTRL+CREATE 2026 |
-| **Živa predstavitev** | Ni potrjene javne povezave; pred oddajo dodajte URL |
-| **GitHub** | [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) — repozitorij je zaseben, potreben je dostop |
+| **Živa predstavitev** | GitHub Pages je pripravljen; URL bo aktiven po javni objavi repozitorija in prvem workflowu |
+| **GitHub** | [JegiXD/KMS-CTRL-CREATE](https://github.com/JegiXD/KMS-CTRL-CREATE) — vidnost repozitorija je treba nastaviti na javno |
 | **Predogled** | Posnetkov zaslona v repozitoriju ni |
 
 ## O projektu
@@ -137,7 +137,7 @@ Vite izpiše lokalni naslov. Za druge ukaze:
 | `npm run build` | Preverjanje TypeScript projekta in produkcijska gradnja v `dist/` |
 | `npm run preview` | Lokalni predogled zadnje produkcijske gradnje |
 
-Skriptov `npm test`, `npm run lint` ali enakovrednega avtomatiziranega testnega nabora projekt ne vsebuje. `npm run preview` ni produkcijsko gostovanje. Pri objavi je treba strežnik nastaviti tako, da za neposredne obiske SPA-poti vrne `index.html`; konfiguracija gostovanja v repozitoriju ni potrjena.
+Skriptov `npm test`, `npm run lint` ali enakovrednega avtomatiziranega testnega nabora projekt ne vsebuje. `npm run preview` ni produkcijsko gostovanje. Repozitorij vsebuje GitHub Actions workflow za GitHub Pages (`.github/workflows/deploy-pages.yml`), Vite pa je nastavljen na pot `/KMS-CTRL-CREATE/`. Po nastavitvi **Settings → Pages → GitHub Actions** in potisku na `main` bo predvideni URL `https://jegixd.github.io/KMS-CTRL-CREATE/`. Workflow v `dist/` doda tudi `404.html`, da neposredni obiski SPA-poti vrnejo aplikacijo.
 
 ## Posnetki zaslona
 
