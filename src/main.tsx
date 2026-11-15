@@ -5,4 +5,4 @@ import App from './App';
 import 'lenis/dist/lenis.css';
 import './styles.css';
 import './editorial.css';
-createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App/></BrowserRouter></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter basename={import.meta.env.BASE_URL}><App/></BrowserRouter></React.StrictMode>);
